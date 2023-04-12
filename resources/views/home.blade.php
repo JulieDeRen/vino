@@ -14,8 +14,12 @@
                         </div>
                     @endif
                     <h1 class="text-3xl font-bold text-lime-400 mx-10">
-                        Hello world!
+                        Hello world! Exemple de Tailwind CSS utilisation
                     </h1>
+
+                    <div id="app">
+                        <example-component></example-component>
+                    </div>
 
                     {{ __('You are logged in!') }}
                 </div>
