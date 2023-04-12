@@ -18,3 +18,4 @@ Création d'une application web pour la création et la gestion de cellier priv�
 A compléter/préciser si besoin
 
 /* -------------------------------------- */
+![vino](https://user-images.githubusercontent.com/101778074/231477026-4328f762-e474-45b5-a6e0-3e74d406b45c.png)
