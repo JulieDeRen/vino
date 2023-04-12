@@ -13,6 +13,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    <h1 class="text-3xl font-bold text-lime-400 mx-10">
+                        Hello world!
+                    </h1>
 
                     {{ __('You are logged in!') }}
                 </div>
