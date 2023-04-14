@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Apr 14, 2023 at 05:13 PM
+-- Generation Time: Apr 14, 2023 at 06:14 PM
 -- Server version: 5.7.34
 -- PHP Version: 7.4.21
 
@@ -35,16 +35,18 @@ CREATE TABLE `bouteille_par_celliers` (
   `quantite` int(11) NOT NULL,
   `vino_cellier_id` int(11) NOT NULL,
   `vino_bouteille_id` int(11) NOT NULL,
-  `millesime` int(11) DEFAULT NULL
+  `millesime` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `bouteille_par_celliers`
 --
 
-INSERT INTO `bouteille_par_celliers` (`id`, `date_achat`, `garde_jusqua`, `prix`, `quantite`, `vino_cellier_id`, `vino_bouteille_id`, `millesime`) VALUES
-(1, NULL, NULL, 3500, 4, 1, 4, 1975),
-(2, '2019-01-16', '2024-01-16', 80, 50, 1, 2, NULL);
+INSERT INTO `bouteille_par_celliers` (`id`, `date_achat`, `garde_jusqua`, `prix`, `quantite`, `vino_cellier_id`, `vino_bouteille_id`, `millesime`, `created_at`, `updated_at`) VALUES
+(1, NULL, NULL, 3500, 4, 1, 4, 1975, '2023-04-14 17:52:32', NULL),
+(2, '2019-01-16', '2024-01-16', 80, 50, 1, 2, NULL, '2023-04-14 17:52:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -55,7 +57,9 @@ INSERT INTO `bouteille_par_celliers` (`id`, `date_achat`, `garde_jusqua`, `prix`
 CREATE TABLE `liste_souhaits` (
   `utilisateurs_id` int(11) NOT NULL,
   `vino_bouteilles_id` int(11) NOT NULL,
-  `id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -68,7 +72,9 @@ CREATE TABLE `notes` (
   `note` int(11) DEFAULT NULL,
   `utilisateurs_id` int(11) NOT NULL,
   `vino_bouteilles_id` int(11) NOT NULL,
-  `id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -79,18 +85,20 @@ CREATE TABLE `notes` (
 
 CREATE TABLE `pays` (
   `id` int(11) NOT NULL,
-  `pays` varchar(60) NOT NULL
+  `pays` varchar(60) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `pays`
 --
 
-INSERT INTO `pays` (`id`, `pays`) VALUES
-(1, 'Espagne'),
-(2, 'États-Unis'),
-(3, 'Autriche'),
-(4, 'France');
+INSERT INTO `pays` (`id`, `pays`, `created_at`, `updated_at`) VALUES
+(1, 'Espagne', NULL, NULL),
+(2, 'États-Unis', NULL, NULL),
+(3, 'Autriche', NULL, NULL),
+(4, 'France', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -105,16 +113,18 @@ CREATE TABLE `utilisateurs` (
   `courriel` varchar(255) NOT NULL,
   `mot_passe` varchar(255) NOT NULL,
   `utilisateur_privilege_id` int(11) NOT NULL,
-  `pays_id` int(11) DEFAULT NULL
+  `pays_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `utilisateurs`
 --
 
-INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `courriel`, `mot_passe`, `utilisateur_privilege_id`, `pays_id`) VALUES
-(1, 'Cage', 'Nicolas', 'nicolas@cage.com', '123456', 1, 2),
-(2, 'Almodoval', 'Pedro', 'pedro@gmail.com', '123456', 2, 1);
+INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `courriel`, `mot_passe`, `utilisateur_privilege_id`, `pays_id`, `created_at`, `updated_at`) VALUES
+(1, 'Cage', 'Nicolas', 'nicolas@cage.com', '123456', 1, 2, NULL, NULL),
+(2, 'Almodoval', 'Pedro', 'pedro@gmail.com', '123456', 2, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -124,16 +134,18 @@ INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `courriel`, `mot_passe`, `uti
 
 CREATE TABLE `utilisateur_privileges` (
   `id` int(11) NOT NULL,
-  `privilege` varchar(60) NOT NULL
+  `privilege` varchar(60) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `utilisateur_privileges`
 --
 
-INSERT INTO `utilisateur_privileges` (`id`, `privilege`) VALUES
-(1, 'utilisateur'),
-(2, 'administrateur');
+INSERT INTO `utilisateur_privileges` (`id`, `privilege`, `created_at`, `updated_at`) VALUES
+(1, 'utilisateur', NULL, NULL),
+(2, 'administrateur', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -152,24 +164,26 @@ CREATE TABLE `vino_bouteilles` (
   `url_img` varchar(255) DEFAULT NULL,
   `vino_format_id` int(11) DEFAULT NULL,
   `vino_type_id` int(11) DEFAULT NULL,
-  `pays_id` int(11) DEFAULT NULL
+  `pays_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `vino_bouteilles`
 --
 
-INSERT INTO `vino_bouteilles` (`id`, `nom`, `image`, `code_saq`, `description`, `prix_saq`, `url_saq`, `url_img`, `vino_format_id`, `vino_type_id`, `pays_id`) VALUES
-(1, 'Borsao Seleccion', '//s7d9.scene7.com/is/image/SAQ/10324623_is?$saq-rech-prod-gril$', '10324623', 'Vin rouge d\'Espagne', 11, 'https://www.saq.com/page/fr/saqcom/vin-rouge/borsao-seleccion/10324623', '//s7d9.scene7.com/is/image/SAQ/10324623_is?$saq-rech-prod-gril$', 1, 1, 1),
-(2, 'Monasterio de Las Vinas Gran Reserva', '//s7d9.scene7.com/is/image/SAQ/10359156_is?$saq-rech-prod-gril$', '10359156', 'Vin rouge d\'Espagne', 19, 'https://www.saq.com/page/fr/saqcom/vin-rouge/monasterio-de-las-vinas-gran-reserva/10359156', '//s7d9.scene7.com/is/image/SAQ/10359156_is?$saq-rech-prod-gril$', 1, 1, 1),
-(3, 'Castano Hecula', '//s7d9.scene7.com/is/image/SAQ/11676671_is?$saq-rech-prod-gril$', '11676671', 'Vin rouge d\'Espagne', 12, 'https://www.saq.com/page/fr/saqcom/vin-rouge/castano-hecula/11676671', '//s7d9.scene7.com/is/image/SAQ/11676671_is?$saq-rech-prod-gril$', 1, 1, 1),
-(4, 'Campo Viejo Tempranillo Rioja', '//s7d9.scene7.com/is/image/SAQ/11462446_is?$saq-rech-prod-gril$', '11462446', 'Vin rouge d\'Espagne', 14, 'https://www.saq.com/page/fr/saqcom/vin-rouge/campo-viejo-tempranillo-rioja/11462446', '//s7d9.scene7.com/is/image/SAQ/11462446_is?$saq-rech-prod-gril$', 1, 1, 1),
-(5, 'Bodegas Atalaya Laya 2017', '//s7d9.scene7.com/is/image/SAQ/12375942_is?$saq-rech-prod-gril$', '12375942', 'Vin rouge d\'Espagne', 17, 'https://www.saq.com/page/fr/saqcom/vin-rouge/bodegas-atalaya-laya-2017/12375942', '//s7d9.scene7.com/is/image/SAQ/12375942_is?$saq-rech-prod-gril$', 1, 1, 1),
-(6, 'Vin Vault Pinot Grigio', '//s7d9.scene7.com/is/image/SAQ/13467048_is?$saq-rech-prod-gril$', '13467048', 'Vin blanc des États-Unis', 15, 'https://www.saq.com/page/fr/saqcom/vin-blanc/vin-vault-pinot-grigio/13467048', '//s7d9.scene7.com/is/image/SAQ/13467048_is?$saq-rech-prod-gril$', 2, 2, 2),
-(7, 'Huber Riesling Engelsberg 2017', '//s7d9.scene7.com/is/image/SAQ/13675841_is?$saq-rech-prod-gril$', '13675841', 'Vin blanc d\'Autriche', 22, 'https://www.saq.com/page/fr/saqcom/vin-blanc/huber-riesling-engelsberg-2017/13675841', '//s7d9.scene7.com/is/image/SAQ/13675841_is?$saq-rech-prod-gril$', 1, 2, 3),
-(8, 'Dominio de Tares Estay Castilla y Léon 2015', '//s7d9.scene7.com/is/image/SAQ/13802571_is?$saq-rech-prod-gril$', '13802571', 'Vin rouge d\'Espagne', 18, 'https://www.saq.com/page/fr/saqcom/vin-rouge/dominio-de-tares-estay-castilla-y-leon-2015/13802571', '//s7d9.scene7.com/is/image/SAQ/13802571_is?$saq-rech-prod-gril$', 1, 1, 1),
-(9, 'Tessellae Old Vines Côtes du Roussillon 2016', '//s7d9.scene7.com/is/image/SAQ/12216562_is?$saq-rech-prod-gril$', '12216562', 'Vin rouge de France', 21, 'https://www.saq.com/page/fr/saqcom/vin-rouge/tessellae-old-vines-cotes-du-roussillon-2016/12216562', '//s7d9.scene7.com/is/image/SAQ/12216562_is?$saq-rech-prod-gril$', 1, 1, 4),
-(10, 'Tenuta Il Falchetto Bricco Paradiso -... 2015', '//s7d9.scene7.com/is/image/SAQ/13637422_is?$saq-rech-prod-gril$', '13637422', 'Vin rouge d\'Italie', 34, 'https://www.saq.com/page/fr/saqcom/vin-rouge/tenuta-il-falchetto-bricco-paradiso---barbera-dasti-superiore-docg-2015/13637422', '//s7d9.scene7.com/is/image/SAQ/13637422_is?$saq-rech-prod-gril$', 1, 1, NULL);
+INSERT INTO `vino_bouteilles` (`id`, `nom`, `image`, `code_saq`, `description`, `prix_saq`, `url_saq`, `url_img`, `vino_format_id`, `vino_type_id`, `pays_id`, `created_at`, `updated_at`) VALUES
+(1, 'Borsao Seleccion', '//s7d9.scene7.com/is/image/SAQ/10324623_is?$saq-rech-prod-gril$', '10324623', 'Vin rouge d\'Espagne', 11, 'https://www.saq.com/page/fr/saqcom/vin-rouge/borsao-seleccion/10324623', '//s7d9.scene7.com/is/image/SAQ/10324623_is?$saq-rech-prod-gril$', 1, 1, 1, NULL, NULL),
+(2, 'Monasterio de Las Vinas Gran Reserva', '//s7d9.scene7.com/is/image/SAQ/10359156_is?$saq-rech-prod-gril$', '10359156', 'Vin rouge d\'Espagne', 19, 'https://www.saq.com/page/fr/saqcom/vin-rouge/monasterio-de-las-vinas-gran-reserva/10359156', '//s7d9.scene7.com/is/image/SAQ/10359156_is?$saq-rech-prod-gril$', 1, 1, 1, NULL, NULL),
+(3, 'Castano Hecula', '//s7d9.scene7.com/is/image/SAQ/11676671_is?$saq-rech-prod-gril$', '11676671', 'Vin rouge d\'Espagne', 12, 'https://www.saq.com/page/fr/saqcom/vin-rouge/castano-hecula/11676671', '//s7d9.scene7.com/is/image/SAQ/11676671_is?$saq-rech-prod-gril$', 1, 1, 1, NULL, NULL),
+(4, 'Campo Viejo Tempranillo Rioja', '//s7d9.scene7.com/is/image/SAQ/11462446_is?$saq-rech-prod-gril$', '11462446', 'Vin rouge d\'Espagne', 14, 'https://www.saq.com/page/fr/saqcom/vin-rouge/campo-viejo-tempranillo-rioja/11462446', '//s7d9.scene7.com/is/image/SAQ/11462446_is?$saq-rech-prod-gril$', 1, 1, 1, NULL, NULL),
+(5, 'Bodegas Atalaya Laya 2017', '//s7d9.scene7.com/is/image/SAQ/12375942_is?$saq-rech-prod-gril$', '12375942', 'Vin rouge d\'Espagne', 17, 'https://www.saq.com/page/fr/saqcom/vin-rouge/bodegas-atalaya-laya-2017/12375942', '//s7d9.scene7.com/is/image/SAQ/12375942_is?$saq-rech-prod-gril$', 1, 1, 1, NULL, NULL),
+(6, 'Vin Vault Pinot Grigio', '//s7d9.scene7.com/is/image/SAQ/13467048_is?$saq-rech-prod-gril$', '13467048', 'Vin blanc des États-Unis', 15, 'https://www.saq.com/page/fr/saqcom/vin-blanc/vin-vault-pinot-grigio/13467048', '//s7d9.scene7.com/is/image/SAQ/13467048_is?$saq-rech-prod-gril$', 2, 2, 2, NULL, NULL),
+(7, 'Huber Riesling Engelsberg 2017', '//s7d9.scene7.com/is/image/SAQ/13675841_is?$saq-rech-prod-gril$', '13675841', 'Vin blanc d\'Autriche', 22, 'https://www.saq.com/page/fr/saqcom/vin-blanc/huber-riesling-engelsberg-2017/13675841', '//s7d9.scene7.com/is/image/SAQ/13675841_is?$saq-rech-prod-gril$', 1, 2, 3, NULL, NULL),
+(8, 'Dominio de Tares Estay Castilla y Léon 2015', '//s7d9.scene7.com/is/image/SAQ/13802571_is?$saq-rech-prod-gril$', '13802571', 'Vin rouge d\'Espagne', 18, 'https://www.saq.com/page/fr/saqcom/vin-rouge/dominio-de-tares-estay-castilla-y-leon-2015/13802571', '//s7d9.scene7.com/is/image/SAQ/13802571_is?$saq-rech-prod-gril$', 1, 1, 1, NULL, NULL),
+(9, 'Tessellae Old Vines Côtes du Roussillon 2016', '//s7d9.scene7.com/is/image/SAQ/12216562_is?$saq-rech-prod-gril$', '12216562', 'Vin rouge de France', 21, 'https://www.saq.com/page/fr/saqcom/vin-rouge/tessellae-old-vines-cotes-du-roussillon-2016/12216562', '//s7d9.scene7.com/is/image/SAQ/12216562_is?$saq-rech-prod-gril$', 1, 1, 4, NULL, NULL),
+(10, 'Tenuta Il Falchetto Bricco Paradiso -... 2015', '//s7d9.scene7.com/is/image/SAQ/13637422_is?$saq-rech-prod-gril$', '13637422', 'Vin rouge d\'Italie', 34, 'https://www.saq.com/page/fr/saqcom/vin-rouge/tenuta-il-falchetto-bricco-paradiso---barbera-dasti-superiore-docg-2015/13637422', '//s7d9.scene7.com/is/image/SAQ/13637422_is?$saq-rech-prod-gril$', 1, 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -182,15 +196,17 @@ CREATE TABLE `vino_celliers` (
   `nom` varchar(100) NOT NULL,
   `quantite_max` int(11) DEFAULT NULL,
   `description` text,
-  `utilisateurs_id` int(11) NOT NULL
+  `utilisateurs_id` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `vino_celliers`
 --
 
-INSERT INTO `vino_celliers` (`id`, `nom`, `quantite_max`, `description`, `utilisateurs_id`) VALUES
-(1, 'Malibu mansion', 2000, 'Pour les réalisateurs, les producteurs et les banquiers', 1);
+INSERT INTO `vino_celliers` (`id`, `nom`, `quantite_max`, `description`, `utilisateurs_id`, `created_at`, `updated_at`) VALUES
+(1, 'Malibu mansion', 2000, 'Pour les réalisateurs, les producteurs et les banquiers', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -200,17 +216,19 @@ INSERT INTO `vino_celliers` (`id`, `nom`, `quantite_max`, `description`, `utilis
 
 CREATE TABLE `vino_formats` (
   `id` int(11) NOT NULL,
-  `format` varchar(60) NOT NULL
+  `format` varchar(60) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `vino_formats`
 --
 
-INSERT INTO `vino_formats` (`id`, `format`) VALUES
-(1, '750 ml'),
-(2, '3 L'),
-(3, '1 L');
+INSERT INTO `vino_formats` (`id`, `format`, `created_at`, `updated_at`) VALUES
+(1, '750 ml', NULL, NULL),
+(2, '3 L', NULL, NULL),
+(3, '1 L', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -220,16 +238,18 @@ INSERT INTO `vino_formats` (`id`, `format`) VALUES
 
 CREATE TABLE `vino_types` (
   `id` int(11) NOT NULL,
-  `type` varchar(45) NOT NULL
+  `type` varchar(45) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `vino_types`
 --
 
-INSERT INTO `vino_types` (`id`, `type`) VALUES
-(1, 'Vin rouge'),
-(2, 'Vin blanc');
+INSERT INTO `vino_types` (`id`, `type`, `created_at`, `updated_at`) VALUES
+(1, 'Vin rouge', NULL, NULL),
+(2, 'Vin blanc', NULL, NULL);
 
 --
 -- Indexes for dumped tables
