@@ -18,11 +18,6 @@ use App\Models\Bouteille;
 
 class BouteilleController
 {
-<<<<<<< HEAD
-
-=======
-	
->>>>>>> 3e779a5ad9b1559e6a1045b52c667df3b384dff2
 		/**
 		 * Traite la requête
 		 * @return void
@@ -30,11 +25,6 @@ class BouteilleController
 		// gestion route php
 		public function gerer()
 		{
-<<<<<<< HEAD
-
-=======
-			
->>>>>>> 3e779a5ad9b1559e6a1045b52c667df3b384dff2
 			switch ($_GET['requete']) {
 				case 'listeBouteille':
 					$this->listeBouteille();
@@ -64,33 +54,19 @@ class BouteilleController
 			include("vues/entete.php");
 			include("vues/cellier.php");
 			include("vues/pied.php");
-<<<<<<< HEAD
 
 		}
 
-=======
-                  
-		}
-		
->>>>>>> 3e779a5ad9b1559e6a1045b52c667df3b384dff2
 
 		private function listeBouteille()
 		{
 			$bte = new Bouteille();
             $cellier = $bte->getListeBouteilleCellier();
-<<<<<<< HEAD
 
             echo json_encode($cellier);
 
 		}
 
-=======
-            
-            echo json_encode($cellier);
-                  
-		}
-		
->>>>>>> 3e779a5ad9b1559e6a1045b52c667df3b384dff2
 		private function autocompleteBouteille()
 		{
 			$bte = new Bouteille();
@@ -98,15 +74,9 @@ class BouteilleController
 			$body = json_decode(file_get_contents('php://input'));
 			//var_dump($body);
             $listeBouteille = $bte->autocomplete($body->nom);
-<<<<<<< HEAD
 
             echo json_encode($listeBouteille);
 
-=======
-            
-            echo json_encode($listeBouteille);
-                  
->>>>>>> 3e779a5ad9b1559e6a1045b52c667df3b384dff2
 		}
 		private function ajouterNouvelleBouteilleCellier()
 		{
@@ -115,11 +85,6 @@ class BouteilleController
 			if(!empty($body)){
 				$bte = new Bouteille();
 				//var_dump($_POST['data']);
-<<<<<<< HEAD
-
-=======
-				
->>>>>>> 3e779a5ad9b1559e6a1045b52c667df3b384dff2
 				//var_dump($data);
 				$resultat = $bte->ajouterBouteilleCellier($body);
 				echo json_encode($resultat);
@@ -129,7 +94,6 @@ class BouteilleController
 				include("vues/ajouter.php");
 				include("vues/pied.php");
 			}
-<<<<<<< HEAD
 
 
 		}
@@ -138,16 +102,6 @@ class BouteilleController
 		{
 			$body = json_decode(file_get_contents('php://input'));
 
-=======
-			
-            
-		}
-		
-		private function boireBouteilleCellier()
-		{
-			$body = json_decode(file_get_contents('php://input'));
-			
->>>>>>> 3e779a5ad9b1559e6a1045b52c667df3b384dff2
 			$bte = new Bouteille();
 			$resultat = $bte->modifierQuantiteBouteilleCellier($body->id, -1);
 			echo json_encode($resultat);
@@ -156,11 +110,6 @@ class BouteilleController
 		private function ajouterBouteilleCellier()
 		{
 			$body = json_decode(file_get_contents('php://input'));
-<<<<<<< HEAD
-
-=======
-			
->>>>>>> 3e779a5ad9b1559e6a1045b52c667df3b384dff2
 			$bte = new Bouteille();
 			$resultat = $bte->modifierQuantiteBouteilleCellier($body->id, 1);
 			echo json_encode($resultat);
@@ -170,12 +119,6 @@ class BouteilleController
         {
             return view('bouteille/cellier');
         }
-<<<<<<< HEAD
 
 }
 ?>
-=======
-		
-}
-?>
->>>>>>> 3e779a5ad9b1559e6a1045b52c667df3b384dff2
