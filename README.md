@@ -19,3 +19,12 @@ A compléter/préciser si besoin
 
 /* -------------------------------------- */
 ![vino](https://user-images.githubusercontent.com/101778074/231477026-4328f762-e474-45b5-a6e0-3e74d406b45c.png)
+
+
+14 Avril 
+les mises à jours:
+
+Installation de vue-routeur (ver. pour le Vue 2.714 - installé)
+- npm install vue-router@2.7.0 --save  
+
+
