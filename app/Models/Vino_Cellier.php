@@ -5,11 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Vino_Format extends Model
+class Vino_Cellier extends Model
 {
+    protected $table = 'vino_celliers';
     use HasFactory;
-    protected $table = 'vino_formats';
     protected $fillable = [
-        'format'
+        'nom',
+        'quantite_max', 
+        'utilisateurs_id',
     ];
 }
