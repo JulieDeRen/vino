@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Vino_Bouteille extends Model
 {
     use HasFactory;
+    protected $table = 'vino_bouteilles';
     protected $fillable = [
         'image',
         'code_saq', 
