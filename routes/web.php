@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BouteilleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,5 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/bouteille', [App\Http\Controllers\BouteilleController::class, 'index'])->name('bouteille.cellier');
