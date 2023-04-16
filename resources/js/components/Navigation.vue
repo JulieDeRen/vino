@@ -24,7 +24,7 @@
             <rect x="14" y="1" width="7" height="6"></rect>
             <rect x="14" y="11" width="7" height="12"></rect>
           </svg>
-         
+
         </a>
         <ul class="flex items-center justify-between hidden space-x-8 lg:flex">
           <li>
@@ -39,14 +39,20 @@
           </li>
           <li>
             <router-link to="/inscrir" class="justify-center font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400" aria-label="Sign up" title="Sign up">
-              S'inscrir
+              S'inscrire
             </router-link>
           </li>
-      
+
         <form class="inline-flex items-center w-full md:justify-between tracking-wide">
-          <input placeholder="Trouver votre vine" required="" type="text" class="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline" />
+          <div class="relative">
+            <input placeholder="Recherche de vine" required="" type="text" class="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+            @keypress="showSearchOptions()"/>
+            <ul class="absolute inline-block">
+              <li v-for="closeVine in this.closestVineList" :key="closeVine.id">{{ closeVine.nom }}</li>
+            </ul>
+          </div>
           <button type="submit" class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">
-            Search
+            Recherche
           </button>
         </form>
       </ul>
@@ -147,12 +153,19 @@
                     </a>
                   </li>
                   <form class="inline-flex flex-col items-center w-full mb-4 md:flex-row md:px-16 tracking-wide">
+                    <div class="relative">
                     <input
-                      placeholder="Email"
+                      placeholder="Recherche"
                       required=""
                       type="text"
                       class="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                      @keypress="showSearchOptions"
                     />
+                    <ul class="absolute">
+                      <li>f</li>
+                    </ul>
+                  </div>
+
                     <button
                       type="submit"
                       class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
@@ -168,13 +181,31 @@
       </div>
     </div>
   </template>
-  
+
   <script>
   export default {
     data() {
       return {
         isMenuOpen: false,
+        vineList: [],
+        closestVineList: []
       };
     },
+    methods: {
+      showSearchOptions () {
+        // Code pour filtrer la recherche
+        this.closestVineList = [];
+        for(let i=0; i <= 3; i++) {
+          this.closestVineList.push(this.vineList[i])
+        }
+        console.log(this.closestVineList);
+      }
+    },
+    async beforeMount () {
+      axios.get('/bouteilles')
+        .then(response => {
+            this.vineList = response.data
+        })
+    }
   };
   </script>

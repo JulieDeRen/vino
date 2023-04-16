@@ -24,3 +24,5 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/cellier', [App\Http\Controllers\CellierController::class, 'index'])->name('cellier.index');
+
+Route::get('/bouteilles', [App\Http\Controllers\BouteilleController::class, 'index'])->name('bouteilles');

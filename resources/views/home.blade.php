@@ -18,7 +18,7 @@
                     </h1>
 
                     <div id="app">
-                        <example-component></example-component>
+
                     </div>
 
                     {{ __('You are logged in!') }}
