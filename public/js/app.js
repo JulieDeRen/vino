@@ -5672,21 +5672,21 @@ var render = function render() {
   })])]), _vm._v(" "), _c("ul", {
     staticClass: "flex items-center justify-between hidden space-x-8 lg:flex"
   }, [_c("li", [_c("router-link", {
-    staticClass: "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400",
+    staticClass: "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-accent_wine",
     attrs: {
       to: "/",
       "aria-label": "Our product",
       title: "Our product"
     }
   }, [_vm._v("\n          Accueil\n        ")])], 1), _vm._v(" "), _c("li", [_c("router-link", {
-    staticClass: "justify-center font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400",
+    staticClass: "justify-center font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-accent_wine",
     attrs: {
       to: "/connecter",
       "aria-label": "Sign in",
       title: "connecter"
     }
   }, [_vm._v("\n          Connecter\n        ")])], 1), _vm._v(" "), _c("li", [_c("router-link", {
-    staticClass: "justify-center font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400",
+    staticClass: "justify-center font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-accent_wine",
     attrs: {
       to: "/inscrir",
       "aria-label": "Sign up",
@@ -5806,14 +5806,14 @@ var staticRenderFns = [function () {
   return _c("form", {
     staticClass: "inline-flex items-center w-full md:justify-between tracking-wide"
   }, [_c("input", {
-    staticClass: "flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline",
+    staticClass: "flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-accent_wine-50 focus:outline-none focus:shadow-outline",
     attrs: {
       placeholder: "Trouver votre vine",
       required: "",
       type: "text"
     }
   }), _vm._v(" "), _c("button", {
-    staticClass: "inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none",
+    staticClass: "inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-accent_wine hover:bg-accent_wine-80 focus:shadow-outline focus:outline-none",
     attrs: {
       type: "submit"
     }
@@ -5880,34 +5880,300 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
+  return _c("div", {
+    staticClass: "px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
+  }, [_c("div", {
+    staticClass: "grid gap-5 lg:grid-cols-4 sm:max-w-sm sm:mx-auto lg:max-w-full"
+  }, [_c("div", {
+    staticClass: "overflow-hidden transition-shadow duration-300 bg-white rounded"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "py-5"
+  }, [_c("p", {
+    staticClass: "mb-2 text-xs font-semibold text-gray-600 uppercase"
+  }, [_vm._v("\n          13 Jul 2020\n        ")]), _vm._v(" "), _c("span", {
+    staticClass: "mb-2 font-semibold"
+  }, [_vm._v("Cellier")]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
+    staticClass: "flex space-x-4"
+  }, [_c("a", {
+    staticClass: "flex items-start text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-700 group",
+    attrs: {
+      href: "/",
+      "aria-label": "Comments"
+    }
+  }, [_c("div", {
+    staticClass: "mr-2"
+  }, [_c("svg", {
+    staticClass: "w-5 h-5 text-gray-600 transition-colors duration-200 group-hover:text-deep-purple-accent-700",
+    attrs: {
+      xmlns: "http://www.w3.org/2000/svg",
+      width: "24",
+      height: "24",
+      viewBox: "0 0 24 24",
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "stroke-width": "2",
+      stroke: "currentColor"
+    }
+  }, [_c("polyline", {
+    attrs: {
+      points: "23 5 23 18 19 18 19 22 13 18 12 18",
+      fill: "none",
+      "stroke-miterlimit": "10"
+    }
+  }), _vm._v(" "), _c("polygon", {
+    attrs: {
+      points: "19 2 1 2 1 14 5 14 5 19 12 14 19 14 19 2",
+      fill: "none",
+      stroke: "currentColor",
+      "stroke-miterlimit": "10"
+    }
+  })])]), _vm._v(" "), _c("p", {
+    staticClass: "font-semibold"
+  }, [_vm._v("81")])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "overflow-hidden transition-shadow duration-300 bg-white rounded"
+  }, [_vm._m(2), _vm._v(" "), _c("div", {
+    staticClass: "py-5"
+  }, [_c("p", {
+    staticClass: "mb-2 text-xs font-semibold text-gray-600 uppercase"
+  }, [_vm._v("\n          4 Nov 2020\n        ")]), _vm._v(" "), _c("span", {
+    staticClass: "mb-2 font-semibold"
+  }, [_vm._v("Cellier")]), _vm._v(" "), _vm._m(3), _vm._v(" "), _c("div", {
+    staticClass: "flex space-x-4"
+  }, [_c("a", {
+    staticClass: "flex items-start text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-700 group",
+    attrs: {
+      href: "/",
+      "aria-label": "Comments"
+    }
+  }, [_c("div", {
+    staticClass: "mr-2"
+  }, [_c("svg", {
+    staticClass: "w-5 h-5 text-gray-600 transition-colors duration-200 group-hover:text-deep-purple-accent-700",
+    attrs: {
+      xmlns: "http://www.w3.org/2000/svg",
+      width: "24",
+      height: "24",
+      viewBox: "0 0 24 24",
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "stroke-width": "2",
+      stroke: "currentColor"
+    }
+  }, [_c("polyline", {
+    attrs: {
+      points: "23 5 23 18 19 18 19 22 13 18 12 18",
+      fill: "none",
+      "stroke-miterlimit": "10"
+    }
+  }), _vm._v(" "), _c("polygon", {
+    attrs: {
+      points: "19 2 1 2 1 14 5 14 5 19 12 14 19 14 19 2",
+      fill: "none",
+      stroke: "currentColor",
+      "stroke-miterlimit": "10"
+    }
+  })])]), _vm._v(" "), _c("p", {
+    staticClass: "font-semibold"
+  }, [_vm._v("81")])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "overflow-hidden transition-shadow duration-300 bg-white rounded"
+  }, [_vm._m(4), _vm._v(" "), _c("div", {
+    staticClass: "py-5"
+  }, [_c("p", {
+    staticClass: "mb-2 text-xs font-semibold text-gray-600 uppercase"
+  }, [_vm._v("\n          28 Dec 2020\n        ")]), _vm._v(" "), _c("span", {
+    staticClass: "mb-2 font-semibold"
+  }, [_vm._v("Cellier")]), _vm._v(" "), _vm._m(5), _vm._v(" "), _c("div", {
+    staticClass: "flex space-x-4"
+  }, [_c("a", {
+    staticClass: "flex items-start text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-700 group",
+    attrs: {
+      href: "/",
+      "aria-label": "Comments"
+    }
+  }, [_c("div", {
+    staticClass: "mr-2"
+  }, [_c("svg", {
+    staticClass: "w-5 h-5 text-gray-600 transition-colors duration-200 group-hover:text-deep-purple-accent-700",
+    attrs: {
+      xmlns: "http://www.w3.org/2000/svg",
+      width: "24",
+      height: "24",
+      viewBox: "0 0 24 24",
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "stroke-width": "2",
+      stroke: "currentColor"
+    }
+  }, [_c("polyline", {
+    attrs: {
+      points: "23 5 23 18 19 18 19 22 13 18 12 18",
+      fill: "none",
+      "stroke-miterlimit": "10"
+    }
+  }), _vm._v(" "), _c("polygon", {
+    attrs: {
+      points: "19 2 1 2 1 14 5 14 5 19 12 14 19 14 19 2",
+      fill: "none",
+      stroke: "currentColor",
+      "stroke-miterlimit": "10"
+    }
+  })])]), _vm._v(" "), _c("p", {
+    staticClass: "font-semibold"
+  }, [_vm._v("81")])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "overflow-hidden transition-shadow duration-300 bg-white rounded"
+  }, [_vm._m(6), _vm._v(" "), _c("div", {
+    staticClass: "py-5"
+  }, [_c("p", {
+    staticClass: "mb-2 text-xs font-semibold text-gray-600 uppercase"
+  }, [_vm._v("\n          28 Dec 2020\n        ")]), _vm._v(" "), _c("span", {
+    staticClass: "mb-2 font-semibold"
+  }, [_vm._v("From cellar:")]), _vm._v(" "), _vm._m(7), _vm._v(" "), _c("div", {
+    staticClass: "flex space-x-4"
+  }, [_c("a", {
+    staticClass: "flex items-start text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-700 group",
+    attrs: {
+      href: "/",
+      "aria-label": "Comments"
+    }
+  }, [_c("div", {
+    staticClass: "mr-2"
+  }, [_c("svg", {
+    staticClass: "w-5 h-5 text-gray-600 transition-colors duration-200 group-hover:text-deep-purple-accent-700",
+    attrs: {
+      xmlns: "http://www.w3.org/2000/svg",
+      width: "24",
+      height: "24",
+      viewBox: "0 0 24 24",
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      "stroke-width": "2",
+      stroke: "currentColor"
+    }
+  }, [_c("polyline", {
+    attrs: {
+      points: "23 5 23 18 19 18 19 22 13 18 12 18",
+      fill: "none",
+      "stroke-miterlimit": "10"
+    }
+  }), _vm._v(" "), _c("polygon", {
+    attrs: {
+      points: "19 2 1 2 1 14 5 14 5 19 12 14 19 14 19 2",
+      fill: "none",
+      stroke: "currentColor",
+      "stroke-miterlimit": "10"
+    }
+  })])]), _vm._v(" "), _c("p", {
+    staticClass: "font-semibold"
+  }, [_vm._v("81")])])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
-  }, [_c("div", {
-    staticClass: "grid row-gap-8 sm:grid-cols-3"
-  }, [_c("div", {
-    staticClass: "text-center"
-  }, [_c("h6", {
-    staticClass: "text-5xl font-bold text-deep-purple-accent-400"
-  }, [_vm._v("144K")]), _vm._v(" "), _c("p", {
-    staticClass: "font-bold"
-  }, [_vm._v("Downloads")])]), _vm._v(" "), _c("div", {
-    staticClass: "text-center"
-  }, [_c("h6", {
-    staticClass: "text-5xl font-bold text-deep-purple-accent-400"
-  }, [_vm._v("12.9K")]), _vm._v(" "), _c("p", {
-    staticClass: "font-bold"
-  }, [_vm._v("Subscribers")])]), _vm._v(" "), _c("div", {
-    staticClass: "text-center"
-  }, [_c("h6", {
-    staticClass: "text-5xl font-bold text-deep-purple-accent-400"
-  }, [_vm._v("27.3K")]), _vm._v(" "), _c("p", {
-    staticClass: "font-bold"
-  }, [_vm._v("Users")])])])]);
+  return _c("a", {
+    attrs: {
+      href: "/",
+      "aria-label": "Article"
+    }
+  }, [_c("img", {
+    staticClass: "object-cover w-full h-70 rounded",
+    attrs: {
+      src: "https://www.saq.com/media/catalog/product/1/5/15116225-1_1679602083.png?width=367&height=550&canvas=367,550&quality=80&fit=bounds",
+      alt: ""
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("a", {
+    staticClass: "inline-block mb-3 text-black transition-colors duration-200 hover:text-deep-purple-accent-700",
+    attrs: {
+      href: "/",
+      "aria-label": "Article"
+    }
+  }, [_c("p", {
+    staticClass: "text-2xl font-bold leading-5"
+  }, [_vm._v("André Rohrer Stein Riesling")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("a", {
+    attrs: {
+      href: "/",
+      "aria-label": "Article"
+    }
+  }, [_c("img", {
+    staticClass: "object-cover w-full h-70 rounded",
+    attrs: {
+      src: "https://www.saq.com/media/catalog/product/1/4/14205357-1_1604349331.png?width=367&height=550&canvas=367,550&quality=80&fit=bounds",
+      alt: ""
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("a", {
+    staticClass: "inline-block mb-3 text-black transition-colors duration-200 hover:text-deep-purple-accent-700",
+    attrs: {
+      href: "/",
+      "aria-label": "Article"
+    }
+  }, [_c("p", {
+    staticClass: "text-2xl font-bold leading-5"
+  }, [_vm._v("Alain Jaume Côtes du Rhône Grand Veneur 2021")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("a", {
+    attrs: {
+      href: "/",
+      "aria-label": "Article"
+    }
+  }, [_c("img", {
+    staticClass: "object-cover w-full h-70 rounded",
+    attrs: {
+      src: "https://www.saq.com/media/catalog/product/1/4/14123845-1_1578552027.png?width=367&height=550&canvas=367,550&quality=80&fit=bounds",
+      alt: ""
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("a", {
+    staticClass: "inline-block mb-3 text-black transition-colors duration-200 hover:text-deep-purple-accent-700",
+    attrs: {
+      href: "/",
+      "aria-label": "Article"
+    }
+  }, [_c("p", {
+    staticClass: "text-2xl font-bold leading-5"
+  }, [_vm._v("\n            Albert Bichot Domaine du Pavillon Aloxe-Corton 2020\n          ")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("a", {
+    attrs: {
+      href: "/",
+      "aria-label": "Article"
+    }
+  }, [_c("img", {
+    staticClass: "object-cover w-full h-70 rounded",
+    attrs: {
+      src: "https://www.saq.com/media/catalog/product/1/4/14123845-1_1578552027.png?width=367&height=550&canvas=367,550&quality=80&fit=bounds",
+      alt: ""
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("a", {
+    staticClass: "inline-block mb-3 text-black transition-colors duration-200 hover:text-deep-purple-accent-700",
+    attrs: {
+      href: "/",
+      "aria-label": "Article"
+    }
+  }, [_c("p", {
+    staticClass: "text-2xl font-bold leading-5"
+  }, [_vm._v("\n            Albert Bichot Domaine du Pavillon Aloxe-Corton 2020\n          ")])]);
 }];
 render._withStripped = true;
 
