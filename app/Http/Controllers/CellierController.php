@@ -21,10 +21,13 @@ use App\Models\Vino_Cellier;
 class CellierController
 {
 
+  // Affichage du ou des celliers appartenant à l'utilisateur qui est inscrit
+  // Ajouter Auth
   public function index()
   {
     $cellier=Vino_Cellier::all();
-    return view('cellier.index', ['celliers' => $cellier]);
+    // return $cellier;
+    return view('celliers.index', ['celliers' => $cellier]);
   }
 
 }
