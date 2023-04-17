@@ -1,7 +1,8 @@
 <template>
-    <h2>Composante de recherche</h2>
-
-    
+    <div>
+        <h2>Composante de recherche</h2>
+        <input type="text" class="border-green-500 border">
+    </div>
   </template>
 
   <script>
