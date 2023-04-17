@@ -28,19 +28,19 @@
         </a>
         <ul class="flex items-center justify-between hidden space-x-8 lg:flex">
           <li>
-            <router-link to="/" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400" aria-label="Our product" title="Our product">
+            <a href="/" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400" aria-label="Our product" title="Our product">
               Accueil
-            </router-link>
+            </a>
           </li>
           <li>
-            <router-link to="/connecter" class="justify-center font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400" aria-label="Sign in" title="connecter">
+            <a href="/connecter" class="justify-center font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400" aria-label="Sign in" title="connecter">
               Connecter
-            </router-link>
+            </a>
           </li>
           <li>
-            <router-link to="/inscrir" class="justify-center font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400" aria-label="Sign up" title="Sign up">
+            <a href="/inscrir" class="justify-center font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400" aria-label="Sign up" title="Sign up">
               S'inscrire
-            </router-link>
+            </a>
           </li>
 
         <form class="inline-flex items-center w-full md:justify-between tracking-wide">

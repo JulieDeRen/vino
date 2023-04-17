@@ -17,10 +17,6 @@
                         Hello world! Exemple de Tailwind CSS utilisation
                     </h1>
 
-                    <div id="app">
-
-                    </div>
-
                     {{ __('You are logged in!') }}
                 </div>
             </div>
