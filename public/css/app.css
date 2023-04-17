@@ -640,6 +640,9 @@ video {
 .max-w-md {
   max-width: 28rem;
 }
+.flex-auto {
+  flex: 1 1 auto;
+}
 .origin-left {
   transform-origin: left;
 }
@@ -740,6 +743,10 @@ video {
 .border-red-500 {
   --tw-border-opacity: 1;
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
+}
+.border-green-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(34 197 94 / var(--tw-border-opacity));
 }
 .bg-gray-100 {
   --tw-bg-opacity: 1;
