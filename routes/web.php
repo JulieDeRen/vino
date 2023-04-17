@@ -25,6 +25,11 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/celliers', [App\Http\Controllers\CellierController::class, 'index'])->name('celliers.index');
+<<<<<<< HEAD
+Route::get('/creer-cellier', [App\Http\Controllers\CellierController::class, 'creer'])->name('celliers.creer');
+Route::post('/creer-cellier', [App\Http\Controllers\CellierController::class, 'insererCellier'])->name('celliers.insererCellier');
+=======
+>>>>>>> f01418fc9699535a2a25b5ce055ea00d69feb366
 
 Route::get('/bouteilles', [BouteilleController::class, 'index'])->name('bouteilles');
 

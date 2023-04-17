@@ -13,7 +13,7 @@
   <div class="py-16 grid gap-8 row-gap-5 mb-8 lg:grid-cols-3 lg:row-gap-8">
     @foreach($celliers as $cellier)
     <div>
-      <img class="object-cover w-full h-56 mb-6 rounded shadow-lg md:h-64 xl:h-80" src="img/large_Charlevoix-Wine-Cellar-with-Dog.jpg" alt="cellier à Malibu" />
+      <img class="object-cover w-full h-56 mb-6 rounded shadow-lg md:h-64 xl:h-80" src="img/celliers/large_Charlevoix-Wine-Cellar-with-Dog.jpg" alt="cellier à Malibu" />
         <h3 class="mb-2 text-3xl font-bold leading-none sm:text-2xl">
           {{$cellier->nom}}
         </h3>

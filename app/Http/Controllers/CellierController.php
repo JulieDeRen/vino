@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Vino_Bouteille;
 use App\Models\Bouteille_Par_Cellier;
 use App\Models\Vino_Cellier;
+use Illuminate\Http\Request;
 
 
 /**
@@ -36,6 +37,21 @@ class CellierController
     $cellier=Vino_Cellier::all();
     // return $cellier;
     return view('celliers.creer', ['celliers' => $cellier]);
+  }
+
+  public function insererCellier(Request $request)
+  {
+    // return $request;
+    $request['utilisateurs_id'] = 1;
+    $cellier = Vino_Cellier::create([
+      'nom' => $request->nom,
+      'quantite_max' => $request ->quantite_max,
+      'description' => $request ->description,
+      'image' => $request ->image,
+      'utilisateurs_id'=> $request->utilisateurs_id,
+  ]);
+  $cellier->save();
+  return redirect(route('celliers.index'));
   }
 
 }

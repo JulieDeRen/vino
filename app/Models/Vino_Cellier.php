@@ -12,6 +12,8 @@ class Vino_Cellier extends Model
     protected $fillable = [
         'nom',
         'quantite_max', 
+        'description',
+        'image',
         'utilisateurs_id',
     ];
 }
