@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Vino_Bouteille;
 use App\Models\Bouteille_Par_Cellier;
 use App\Models\Vino_Cellier;
+use App\Models\Bouteille;
 use Illuminate\Http\Request;
 
 
@@ -55,7 +56,13 @@ class CellierController
   }
   public function afficher($cellier)
   {
-      $cellier = Vino_Cellier::find($cellier); // Assuming you have a `Cellier` model
+      // chercher dans la classe Vino_Cellier la ligne correspondante au id ($cellier)
+      // $cellier = Vino_Cellier::find($cellier); 
+      $cellier = Vino_Cellier::select('*')
+      -> join('bouteille_par_celliers', 'vino_celliers.id', '=', 'bouteille_par_celliers.vino_cellier_id')
+      -> join('vino_bouteilles', 'vino_bouteilles.id', '=', 'bouteille_par_celliers.vino_bouteille_id')
+      ->where('vino_celliers.id', $cellier)
+      ->get();
 
       return view('celliers.afficher', ['cellier' => $cellier]);
   }
