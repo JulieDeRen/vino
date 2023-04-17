@@ -1,7 +1,9 @@
 @extends('layouts.app')
-
 @section('content')
+
 <div class="container">
+
+home
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -15,10 +17,10 @@
                     @endif
                     <h1 class="text-3xl font-bold text-lime-400 mx-10">
                         Hello world! Exemple de Tailwind CSS utilisation
-                    </h1>
+                    </h1> 
 
                     <div id="app">
-                        <example-component></example-component>
+
                     </div>
 
                     {{ __('You are logged in!') }}
