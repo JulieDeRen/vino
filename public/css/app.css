@@ -629,6 +629,9 @@ video {
 .max-w-md {
   max-width: 28rem;
 }
+.flex-auto {
+  flex: 1 1 auto;
+}
 .origin-left {
   transform-origin: left;
 }
@@ -734,9 +737,15 @@ video {
   --tw-border-opacity: 1;
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
 }
+<<<<<<< HEAD
 .border-r-green-500 {
   --tw-border-opacity: 1;
   border-right-color: rgb(34 197 94 / var(--tw-border-opacity));
+=======
+.border-green-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(34 197 94 / var(--tw-border-opacity));
+>>>>>>> 060669f05fd3397808786eff35d81b60468a9ac0
 }
 .bg-gray-100 {
   --tw-bg-opacity: 1;
@@ -1155,5 +1164,26 @@ video {
   .xl\:h-80 {
     height: 20rem;
   }
+}
+
+/* ---------- Cellier creation nv cellier choix d'image ---------*/
+.cellier-img label {
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+}
+.cellier-img input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.cellier-img img {
+  border: 3px solid white;
+  width: 120px;
+  height: 100px;
+  border-radius: 10px;
+}
+.cellier-img input[type="radio"]:checked + img {
+  outline: 3px solid red;
 }
 
