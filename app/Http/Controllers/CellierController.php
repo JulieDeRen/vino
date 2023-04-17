@@ -22,13 +22,15 @@ class CellierController
 {
 
   // Affichage du ou des celliers appartenant à l'utilisateur qui est inscrit
-  // Ajouter Auth
+  // **Ajouter Auth
   public function index()
   {
     $cellier=Vino_Cellier::all();
     // return $cellier;
     return view('celliers.index', ['celliers' => $cellier]);
   }
+  // Création de nouveau cellier 
+  // ** doit ajouter Auth qui vient du login
   public function creer()
   {
     $cellier=Vino_Cellier::all();
