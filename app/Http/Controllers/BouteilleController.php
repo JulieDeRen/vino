@@ -146,7 +146,6 @@ class BouteilleController
 
 		private function listeBouteille()
 		{
-			$bte = new Bouteille();
             $cellier = $bte->getListeBouteilleCellier();
 
             echo json_encode($cellier);

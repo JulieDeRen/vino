@@ -4,9 +4,9 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+require("./bootstrap");
 
-window.Vue = require('vue').default;
+window.Vue = require("vue").default;
 
 /**
  * The following block of code may be used to automatically register your
@@ -19,8 +19,7 @@ window.Vue = require('vue').default;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('v-navigation', require('./components/Navigation.vue').default);
-Vue.component('v-footer', require('./components/Footer.vue').default);
+Vue.component("v-recherche", require("./components/Recherche.vue").default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -29,6 +28,5 @@ Vue.component('v-footer', require('./components/Footer.vue').default);
  */
 
 const app = new Vue({
-    el: '#app',
+    el: "#app",
 });
-
