@@ -10,4 +10,6 @@ class Bouteille extends Model
     use HasFactory;
     protected $table = "vino_bouteilles";
 
+    protected $fillable = [];
+
 }
