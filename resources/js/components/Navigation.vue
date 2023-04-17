@@ -46,9 +46,9 @@
         <form class="inline-flex items-center w-full md:justify-between tracking-wide">
           <div class="relative">
             <input placeholder="Recherche de vine" required="" type="text" class="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-            @keypress="showSearchOptions()"/>
+            @keyup="showSearchOptions($event.target.value)" />
             <ul class="absolute inline-block">
-              <li v-for="closeVine in this.closestVineList" :key="closeVine.id">{{ closeVine.nom }}</li>
+              <li v-for="closeVine in this.closestVineList" class="py-1 px-2 border border-violet-500">{{ closeVine.nom }}</li>
             </ul>
           </div>
           <button type="submit" class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">
@@ -159,10 +159,10 @@
                       required=""
                       type="text"
                       class="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                      @keypress="showSearchOptions"
+                      @keyup="showSearchOptions($event.target.value)"
                     />
-                    <ul class="absolute">
-                      <li>f</li>
+                    <ul class="absolute inline-block">
+                      <li v-for="closeVine in this.closestVineList">{{ closeVine.nom }}</li>
                     </ul>
                   </div>
 
@@ -187,18 +187,29 @@
     data() {
       return {
         isMenuOpen: false,
+        textInput: '',
         vineList: [],
         closestVineList: []
       };
     },
     methods: {
-      showSearchOptions () {
+      showSearchOptions (text) {
         // Code pour filtrer la recherche
         this.closestVineList = [];
-        for(let i=0; i <= 3; i++) {
-          this.closestVineList.push(this.vineList[i])
+        let i = 0;
+        if(text !== "") {
+          this.closestVineList = this.vineList.filter(elem => {
+            if(String(elem.nom.toLowerCase()).startsWith(text.toLowerCase()) && i<=3) {
+              i++;
+              return true;
+            } else if(String(elem.nom.toLowerCase()).includes(text.toLowerCase()) && i<=3) {
+              i++;
+              return true;
+            } else {
+              return false;
+            }
+          })
         }
-        console.log(this.closestVineList);
       }
     },
     async beforeMount () {
