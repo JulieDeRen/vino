@@ -53,6 +53,28 @@ class CellierController
   $cellier->save();
   return redirect(route('celliers.index'));
   }
+  public function afficher($cellier)
+  {
+      $cellier = Vino_Cellier::find($cellier); // Assuming you have a `Cellier` model
+
+      return view('celliers.afficher', ['cellier' => $cellier]);
+  }
+
+  public function modifier(Vino_Cellier $cellier)
+  {
+      return view('celliers.modifier', ['cellier'=>$cellier]);
+  }
+  public function enregistrerModification(Request $request, Vino_Cellier $cellier)
+  {
+      $cellier->update([
+        'nom' => $request->nom,
+        'quantite_max' => $request ->quantite_max,
+        'description' => $request ->description,
+        'image' => $request ->image,
+      ]);
+      return redirect(route('celliers.index'))->withSuccess('Article mis à jour.');
+  }
+  
 
 }
 ?>

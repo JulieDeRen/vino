@@ -1,26 +1,28 @@
 @extends('layouts.app')
 @section('content')
 <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-<form action="{{route('celliers.insererCellier')}}" method="post" class="w-full max-w-lg">
-  @csrf
+    <form method="post" enctype="multipart/form-data">
+    <!--passer la méthode PUT et aussi le token expired réémission du token-->
+    @csrf
+    @method('PUT')
   <div>
     <div class="w-full px-3">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="nom">
         Nom
       </label>
-      <input id="nom" name="nom" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="Entrez le nom du cellier" required>
+      <input id="nom" name="nom" value="{{$cellier->nom}}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="Entrez le nom du cellier" required>
     </div>
     <div class="w-full px-3">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="quantite_max">
         Quantité
       </label>
-      <input id="quantite_max" name="quantite_max" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="Capacité maximale du cellier">
+      <input id="quantite_max" name="quantite_max" value="{{$cellier->quantite_max}}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="Capacité maximale du cellier">
     </div>
     <div class="w-full px-3">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="description">
         Description
       </label>
-      <textarea name="description" id="description" cols="30" rows="10" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Ajouter un descriptif à ce cellier "></textarea>
+      <textarea name="description" id="description" cols="30" rows="10" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="{{$cellier->description ?? 'Ajouter un descriptif pour ce cellier'}}"></textarea>
     </div>
     <div class="w-full px-3 cellier-img">
       <label>

@@ -11,8 +11,7 @@
     </div>
   </div>
   <div class="py-16 grid gap-8 row-gap-5 mb-8 lg:grid-cols-3 lg:row-gap-8">
-    @foreach($celliers as $cellier)
-    <div onclick="location.href=`{{route('celliers.afficher', ['cellier' => $cellier->id])}}`">
+    <div onclick="location.href=`{{route('celliers.afficher', $cellier->id)}}`">
       <img class="object-cover w-full h-56 mb-6 rounded shadow-lg md:h-64 xl:h-80" src="{{$cellier->image}}" alt="{{$cellier->nom}}" />
         <h3 class="mb-2 text-3xl font-bold leading-none sm:text-2xl">
           {{$cellier->nom}}
@@ -20,15 +19,13 @@
         <p class="text-gray-700">
         {{$cellier->description ?? ''}}
         </p>
-    </div>
-    @endforeach
     <div class="py-16">
       <div class="text-center">
         <a
-          href="/creer-cellier"
+          href="{{route('celliers.modifier', ['cellier' => $cellier->id])}}"
           class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
         >
-          Ajouter un cellier
+          Modifier les informations du cellier
         </a>
     </div>
     </div>
@@ -36,5 +33,3 @@
 </div>
 
 @endsection
-
-
