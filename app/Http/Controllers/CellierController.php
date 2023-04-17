@@ -29,6 +29,12 @@ class CellierController
     // return $cellier;
     return view('celliers.index', ['celliers' => $cellier]);
   }
+  public function creer()
+  {
+    $cellier=Vino_Cellier::all();
+    // return $cellier;
+    return view('celliers.creer', ['celliers' => $cellier]);
+  }
 
 }
 ?>

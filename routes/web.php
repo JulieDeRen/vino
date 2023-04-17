@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BouteilleController;
+use App\Http\Controllers\CellierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,9 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+// Controlleur cellier
 Route::get('/celliers', [App\Http\Controllers\CellierController::class, 'index'])->name('celliers.index');
+Route::get('/creer-cellier', [App\Http\Controllers\CellierController::class, 'creer'])->name('celliers.creer');
 
+// Controlleur bouteille
 Route::get('/bouteilles', [App\Http\Controllers\BouteilleController::class, 'index'])->name('bouteilles');
