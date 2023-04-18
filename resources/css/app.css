@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+/* Style the modal */
+.modal {
+    z-index: 1;
+  }
+  
+  .modal-content {
+    position: relative;
+  }
