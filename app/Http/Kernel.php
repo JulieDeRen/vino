@@ -2,9 +2,6 @@
 
 namespace App\Http;
 
-use App\Http\Controllers\SAQController;
-use App\Jobs\DownloadDataSAQ;
-use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -25,15 +22,6 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     ];
-
-    /**
-     * Define the application's command schedule.
-     */
-    protected function schedule(Schedule $schedule): void
-    {
-        $job = new DownloadDataSAQ();
-        //$schedule->call()->daily();
-    }
 
     /**
      * The application's route middleware groups.

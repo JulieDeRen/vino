@@ -38,7 +38,7 @@ Route::put('/celliers-modifier/{cellier}', [App\Http\Controllers\CellierControll
 
 Route::get('/bouteilles', [BouteilleController::class, 'index'])->name('bouteilles');
 
-Route::get('/saq', function() {  })->name('bouteilles');
+Route::get('/saq', )->name('bouteilles');
 
 
 Route::get('/DEsaq', [SAQController::class, 'uploadVins'])->name('bouteilles.dd');
