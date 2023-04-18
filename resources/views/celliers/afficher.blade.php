@@ -24,14 +24,9 @@
             <h2 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="nom">
               Ajouter une bouteille
             </h2>
-            <div>
-      <h2 class="text-black">Composante de recherche</h2>
-      <input type="text" class="border-green-500 border" @keydown="showSearchOptions()">
-      <ul>
-        <li v-for="option in options" :key="option.id"></li>
-      </ul>
-      <!-- Code de la barre de recherche ICI -->
-  </div>
+            <section class="flex flex-wrap">
+                <v-recherche />
+            </section>
           </div>
           <div class="w-full">
             <label>

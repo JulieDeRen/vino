@@ -993,6 +993,10 @@ video {
   --tw-text-opacity: 1;
   color: rgb(36 36 36 / var(--tw-text-opacity));
 }
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
 .text-gray-200 {
   --tw-text-opacity: 1;
   color: rgb(238 238 238 / var(--tw-text-opacity));
@@ -1036,10 +1040,6 @@ video {
 .text-section_title {
   --tw-text-opacity: 1;
   color: rgb(144 144 144 / var(--tw-text-opacity));
-}
-.text-black {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 .underline {
   text-decoration-line: underline;
@@ -1392,7 +1392,6 @@ video {
     height: 20rem;
   }
 }
-
 /* ---------- Cellier creation nv cellier choix d'image ---------*/
 .cellier-img label {
   display: inline-block;

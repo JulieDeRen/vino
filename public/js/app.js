@@ -5327,6 +5327,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   methods: {
     showSearchOptions: function showSearchOptions(text) {
+      console.log(text);
       // Code pour filtrer la recherche
       this.closestVineList = [];
       var i = 0;
@@ -5388,14 +5389,14 @@ var render = function render() {
       type: "text"
     },
     on: {
-      keydown: function keydown($event) {
-        return _vm.showSearchOptions();
+      keyup: function keyup($event) {
+        return _vm.showSearchOptions($event.target.value);
       }
     }
-  }), _vm._v(" "), _c("ul", _vm._l(_vm.options, function (option) {
+  }), _vm._v(" "), _c("ul", _vm._l(this.closestVineList, function (vine) {
     return _c("li", {
-      key: option.id
-    });
+      key: vine.id
+    }, [_vm._v(_vm._s(vine.nom))]);
   }), 0)]);
 };
 var staticRenderFns = [];
