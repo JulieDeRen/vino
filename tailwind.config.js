@@ -18,6 +18,7 @@ module.exports = {
                 accent_wine: {
                     DEFAULT: "#67375C",
                     80: "rgba(83, 42, 74, 0.8)",
+                    50: "rgba(83, 42, 74, 0.5)",
                 },
                 section_title: "#909090",
                 article_title: "#242424",
