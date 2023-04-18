@@ -196,7 +196,7 @@ CREATE TABLE `utilisateurs` (
   `nom` varchar(60) DEFAULT NULL,
   `prenom` varchar(60) DEFAULT NULL,
   `courriel` varchar(255) NOT NULL,
-  `mot_passe` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `utilisateur_privilege_id` int(11) NOT NULL,
   `pays_id` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -207,7 +207,7 @@ CREATE TABLE `utilisateurs` (
 -- Dumping data for table `utilisateurs`
 --
 
-INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `courriel`, `mot_passe`, `utilisateur_privilege_id`, `pays_id`, `created_at`, `updated_at`) VALUES
+INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `courriel`, `password`, `utilisateur_privilege_id`, `pays_id`, `created_at`, `updated_at`) VALUES
 (1, 'Cage', 'Nicolas', 'nicolas@cage.com', '123456', 1, 2, NULL, NULL),
 (2, 'Almodoval', 'Pedro', 'pedro@gmail.com', '123456', 2, 1, NULL, NULL);
 
