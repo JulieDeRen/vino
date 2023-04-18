@@ -9,14 +9,14 @@
           <form method="POST" action="{{ route('login') }}">
             @csrf
             <div class="mb-3">
-        
-              <input id="email" type="email" placeholder="{{ __('Email Address') }}" class="shadow appearance-none border rounded w-full py-3 px-3 text-text_primary leading-tight focus:outline-none focus:shadow-outline border-primary @error('email') border-red-500 @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-              @error('email')
+
+              <input id="courriel" type="email" placeholder="{{ __('Email Address') }}" class="shadow appearance-none border rounded w-full py-3 px-3 text-text_primary leading-tight focus:outline-none focus:shadow-outline border-primary @error('courriel') border-red-500 @enderror" name="courriel" value="{{ old('courriel') }}" required autocomplete="courriel" autofocus>
+              @error('courriel')
               <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p>
               @enderror
             </div>
             <div class="mb-4">
-              
+
               <input id="password" type="password" placeholder="{{ __('Password') }}" class="shadow appearance-none border rounded w-full py-3 px-3 text-text_primary leading-tight focus:outline-none focus:shadow-outline border-primary @error('password') border-red-500 @enderror" name="password" required autocomplete="current-password">
               @error('password')
               <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p>
@@ -37,6 +37,7 @@
               </div>
             <div class="text-center">
                 <button type="submit" class="border border-primary text-accent_wine hover:bg-primary hover:text-main py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+
                         {{ __('Connection') }}
                 </button>
             </div>

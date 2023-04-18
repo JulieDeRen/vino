@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BouteilleController;
@@ -21,6 +22,8 @@ use App\Http\Controllers\SAQController;
 });*/
 
 Auth::routes();
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('login', [LoginController::class, 'loginCustom'])->name('login.custom');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 

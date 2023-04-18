@@ -43,6 +43,7 @@
               Celliers
             </a>
           </li>
+          @guest
           <li>
             <a href="{{ route('home') }}" class="justify-center font-medium tracking-wide text-accent_wine transition-colors duration-200 hover:text-section_title" aria-label="articles" title="articles">
              Articles
@@ -64,6 +65,22 @@
               S'inscrire
             </a>
           </li>
+          @else
+          <li>
+            <a href="{{ route('logout') }}" class="justify-center font-medium tracking-wide text-accent_wine transition-colors duration-200 hover:text-gray-500" aria-label="Sign out" title="deconnecter" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+              Déconnecter
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">@csrf</form>
+          </li>
+          <li>
+            <a href="#" class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-accent_wine transition duration-200 rounded shadow-md border border-accent_wine hover:bg-accent_wine hover:text-main focus:shadow-outline focus:outline-none" aria-label="Compte" title="Compte">
+              Compte
+            </a>
+          </li>
+          <li>
+            {{ Auth::user()->nom }} <!-- Affichage du nom Utilisateur. À modifier -->
+          </li>
+          @endguest
         </ul>
         <div class="lg:hidden">
         <button
