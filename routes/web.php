@@ -32,9 +32,9 @@ Route::get('/celliers', [App\Http\Controllers\CellierController::class, 'index']
 Route::get('/creer-cellier', [App\Http\Controllers\CellierController::class, 'creer'])->name('celliers.creer');
 Route::post('/creer-cellier', [App\Http\Controllers\CellierController::class, 'insererCellier'])->name('celliers.insererCellier');
 Route::get('/celliers/{cellier}', [App\Http\Controllers\CellierController::class, 'afficher'])->name('celliers.afficher');
+Route::put('/celliers/{cellier}', [App\Http\Controllers\CellierController::class, 'ajouterBouteille']);
 Route::get('/celliers-modifier/{cellier}', [App\Http\Controllers\CellierController::class, 'modifier'])->name('celliers.modifier');
 Route::put('/celliers-modifier/{cellier}', [App\Http\Controllers\CellierController::class, 'enregistrerModification']);
-Route::put('/ajouterBouteille/{cellier}', [App\Http\Controllers\CellierController::class, 'ajouterBouteille'])->name('celliers.ajouterBouteille');
 
 Route::get('/bouteilles', [BouteilleController::class, 'index'])->name('bouteilles');
 

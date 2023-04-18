@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
   <div class="py-16 grid gap-8 row-gap-5 mb-8 lg:grid-cols-3 lg:row-gap-8">
     <div onclick="location.href=`{{route('celliers.afficher', $cellier->id)}}`">
@@ -13,6 +14,38 @@
     </div>
   </div>
 
+  <div>
+      <!-- Form d'ajout de bouteilles dans ce cellier-->
+      <form method="post" enctype="multipart/form-data">
+          <!--passer la méthode PUT et aussi le token expired réémission du token-->
+          @csrf
+          @method('PUT')
+          <div class="w-full">
+            <h2 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="nom">
+              Ajouter une bouteille
+            </h2>
+            <div>
+      <h2 class="text-black">Composante de recherche</h2>
+      <input type="text" class="border-green-500 border" @keydown="showSearchOptions()">
+      <ul>
+        <li v-for="option in options" :key="option.id"></li>
+      </ul>
+      <!-- Code de la barre de recherche ICI -->
+  </div>
+          </div>
+          <div class="w-full">
+            <label>
+              <input id="quantite" name="quantite" class="appearance-none inline-flex bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="Quantité de bouteilles à ajouter">
+            </label>
+            <label>
+              <input class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-accent_wine transition duration-200 rounded shadow-md border border-accent_wine hover:bg-accent_wine hover:text-main focus:shadow-outline focus:outline-none" 
+              type="submit" 
+              value="Ajouter au cellier">
+            </label>
+          </div>
+        </form>
+      </div>
+    
     <section class="flex flex-wrap">
         @foreach($bouteilles as $bouteille)
             <div class="block border border-green-500 max-w-md:">
@@ -27,8 +60,10 @@
         @endforeach
     </section>
 
-    <div class="py-16">
-      <div class="text-center">
+   
+
+      <!-- Redirection vers modifier les infos du cellier -->
+      <div class="text-center w-full">
         <a
           href="{{route('celliers.modifier', ['cellier' => $cellier->id])}}"
           class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-accent_wine transition duration-200 rounded shadow-md border border-accent_wine hover:bg-accent_wine hover:text-main focus:shadow-outline focus:outline-none"
@@ -36,15 +71,6 @@
           Modifier les informations du cellier
         </a>
       </div>
-    </div>
-    <div class="text-center">
-      <a
-        href="{{route('celliers.ajouterBouteille', ['cellier' => $cellier->id])}}"
-        class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-accent_wine transition duration-200 rounded shadow-md border border-accent_wine hover:bg-accent_wine hover:text-main focus:shadow-outline focus:outline-none"
-      >
-        Ajouter des bouteilles
-      </a>
-    </div>
     </div>
   </div>
 </div>

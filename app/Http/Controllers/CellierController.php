@@ -29,21 +29,18 @@ class CellierController
   public function index()
   {
     $cellier = Vino_Cellier::all();
-    // return $cellier;
     return view('celliers.index', ['celliers' => $cellier]);
   }
-  // Création de nouveau cellier 
-  // ** doit ajouter Auth qui vient du login
+  // formulaire de création d'un cellier 
   public function creer()
   {
-    $cellier = Vino_Cellier::all();
-    // return $cellier;
-    return view('celliers.creer', ['celliers' => $cellier]);
+    return view('celliers.creer');
   }
 
+  // Enregistrement dans la bd
   public function insererCellier(Request $request)
   {
-    // return $request;
+    // ** doit ajouter Auth qui vient du login
     $request['utilisateurs_id'] = 1;
     $cellier = Vino_Cellier::create([
       'nom' => $request->nom,
@@ -55,6 +52,8 @@ class CellierController
     $cellier->save();
     return redirect(route('celliers.index'));
   }
+  // afficher un cellier et les bouteilles de ce cellier
+  // passer en param de fonction afficher $cellier = celliers.id
   public function afficher($cellier)
   {
     // chercher dans la classe Vino_Cellier la ligne correspondante au id ($cellier)
@@ -76,7 +75,10 @@ class CellierController
       'url_img',
       'vino_format_id',
       'vino_type_id',
-      'pays_id'
+      'pays_id',
+      'pays',
+      'format',
+      'type'
     )
       ->join('bouteille_par_celliers', 'vino_bouteilles.id', '=', 'bouteille_par_celliers.vino_bouteille_id')
       ->join('vino_celliers', 'vino_celliers.id', '=', 'bouteille_par_celliers.vino_cellier_id')
@@ -86,15 +88,16 @@ class CellierController
       ->where('vino_celliers.id', $cellier)
       ->get();
 
-
     return view('celliers.afficher', ['cellier' => $celliers,
                                       'bouteilles' => $bouteilles]);
   }
 
+  // Afficher formulaire de modification des informations de la table vino_celliers
   public function modifier(Vino_Cellier $cellier)
   {
     return view('celliers.modifier', ['cellier' => $cellier]);
   }
+  // Enregistrer dans la bd les modifications de la table vino_celliers
   public function enregistrerModification(Request $request, Vino_Cellier $cellier)
   {
     $cellier->update([
@@ -104,5 +107,11 @@ class CellierController
       'image' => $request->image,
     ]);
     return redirect(route('celliers.index'))->withSuccess('Article mis à jour.');
+  }
+
+  // Formulaire d'ajout de bouteilles au cellier
+  public function ajouterBouteille(Vino_Cellier $cellier)
+  {
+    return view('celliers.ajouterBouteille', ['cellier' => $cellier]);
   }
 }
