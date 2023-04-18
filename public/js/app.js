@@ -5380,18 +5380,25 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", [_c("h2", [_vm._v("Composante de recherche")]), _vm._v(" "), _c("input", {
+  return _c("div", [_c("h2", {
+    staticClass: "text-black"
+  }, [_vm._v("Composante de recherche")]), _vm._v(" "), _c("input", {
     staticClass: "border-green-500 border",
     attrs: {
       type: "text"
+    },
+    on: {
+      keydown: function keydown($event) {
+        return _vm.showSearchOptions();
+      }
     }
-  })]);
-}];
+  }), _vm._v(" "), _c("ul", _vm._l(_vm.options, function (option) {
+    return _c("li", {
+      key: option.id
+    });
+  }), 0)]);
+};
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -5401,17 +5408,14 @@ render._withStripped = true;
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _js_functions_functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js_functions/functions */ "./resources/js/js_functions/functions.js");
-/* harmony import */ var _js_functions_functions__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_js_functions_functions__WEBPACK_IMPORTED_MODULE_0__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+//import './js_functions/functions';
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js")["default"]);
@@ -5477,27 +5481,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
-
-/***/ }),
-
-/***/ "./resources/js/js_functions/functions.js":
-/*!************************************************!*\
-  !*** ./resources/js/js_functions/functions.js ***!
-  \************************************************/
-/***/ (() => {
-
-var navToggle = document.querySelector('.nav-toggle');
-var navClose = document.querySelector('.nav-close');
-var mobileMenu = document.querySelector('.mobile-menu');
-navToggle.addEventListener('click', function () {
-  mobileMenu.style.display = 'block'; // show the menu
-  navToggle.textContent = 'Close Menu'; // change text of toggle button
-});
-
-navClose.addEventListener('click', function () {
-  mobileMenu.style.display = 'none'; // hide the menu
-  navToggle.textContent = 'Open Menu'; // change text of toggle button
-});
 
 /***/ }),
 
@@ -40346,18 +40329,6 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
 /******/ 		};
 /******/ 	})();
 /******/ 	

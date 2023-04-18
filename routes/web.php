@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BouteilleController;
 use App\Http\Controllers\SAQController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,5 +38,8 @@ Route::put('/celliers-modifier/{cellier}', [App\Http\Controllers\CellierControll
 
 Route::get('/bouteilles', [BouteilleController::class, 'index'])->name('bouteilles');
 
-Route::get('/saq', [SAQController::class, 'uploadVins'])->name('bouteilles');
+Route::get('/saq', function() {  })->name('bouteilles');
+
+
+Route::get('/DEsaq', [SAQController::class, 'uploadVins'])->name('bouteilles.dd');
 Route::get('/saq-show', [SAQController::class, 'show'])->name('bouteille.show');
