@@ -11,3 +11,11 @@ navClose.addEventListener('click', function() {
   mobileMenu.style.display = 'none'; // hide the menu
   navToggle.textContent = 'Open Menu'; // change text of toggle button
 });
+
+
+
+
+
+
+
+
