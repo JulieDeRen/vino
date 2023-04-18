@@ -1,9 +1,9 @@
 <template>
   <div>
       <h2 class="text-black">Composante de recherche</h2>
-      <input type="text" class="border-green-500 border" @keydown="showSearchOptions()">
+      <input type="text" class="border-green-500 border" @keyup="showSearchOptions($event.target.value)">
       <ul>
-        <li v-for="option in options" :key="option.id"></li>
+        <li v-for="vine in this.closestVineList" :key="vine.id">{{ vine.nom }}</li>
       </ul>
       <!-- Code de la barre de recherche ICI -->
   </div>
@@ -21,6 +21,7 @@ export default {
   },
   methods: {
     showSearchOptions (text) {
+      console.log(text);
       // Code pour filtrer la recherche
       this.closestVineList = [];
       let i = 0;
