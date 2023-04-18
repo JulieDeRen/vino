@@ -1,6 +1,5 @@
 <template>
   <div>
-    dsfdsfsdjgkfnsdklfgnlksdjfn
       <h2 class="text-black">Composante de recherche</h2>
       <input type="text" class="border-green-500 border" @keydown="showSearchOptions()">
       <ul>

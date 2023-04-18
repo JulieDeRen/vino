@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Controllers\SAQController;
+use App\Jobs\DownloadDataSAQ;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -30,8 +31,8 @@ class Kernel extends HttpKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $saq = new SAQController;
-        $schedule->call($saq->uploadVins())->daily();
+        $job = new DownloadDataSAQ();
+        //$schedule->call()->daily();
     }
 
     /**

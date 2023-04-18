@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container mx-auto">
-
+  <v-recherche />
   <div class="max-w-screen-md mx-auto rounded-lg overflow-hidden mt-6 mb-7 p-3">
     <div class="border border-accent_wine rounded-lg">
       <div class="bg-gray-50 rounded-md rounded-t-lg">
@@ -44,7 +44,7 @@
             </div>
           </div>
         </div>
-  
+
       </div>
     </div>
   </div>
@@ -55,7 +55,7 @@
   <div class="modal-content bg-gray-50 w-1/3  min-w-[300px] p-5 flex flex-col border border-accent_wine rounded-lg">
     <span class="close-modal absolute top-5 right-5 text-accent_wine rounded-md border p-2 border-accent_wine hover:bg-accent_wine cursor-pointer hover:text-main" >&times;</span>
     <h2 class="text-lg font-bold mb-4">Ajouster la quantité</h2>
-   
+
     <span>Nouveau Quantité</span>
     <button class="mt-4 border-accent_wine border text-accent_wine px-4 py-2 rounded hover:bg-accent_wine hover:text-main max-w-[300px]">Modifier</button>
   </div>
@@ -79,7 +79,7 @@ btn.onclick = function() {
 };
 </script>
 @endsection
-          
+
 
 
 
