@@ -26,7 +26,7 @@
 
 <body>
   <div id="app">
-    {{-- @include('layouts.nav') --}}
+    @include('layouts.nav')
 </div>
     <main class="py-8">
       @yield('content')
