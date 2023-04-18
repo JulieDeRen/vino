@@ -15,14 +15,13 @@ module.exports = {
             },
             colors: {
                 main: "#FDFDFD",
-                primary: "#ABA08D",
-                secondary: "#EBD0B4",
                 accent_wine: {
-                    DEFAULT: "#532A4A",
+                    DEFAULT: "#67375C",
                     80: "rgba(83, 42, 74, 0.8)",
                 },
-                text_primary: "#242424",
-                box_color: "#ECEAEB",
+                section_title: "#909090",
+                article_title: "#242424",
+                box_color: "#F5F5F5",
                 red: {
                     900: "#b71c1c",
                     "accent-100": "#ff8a80",
