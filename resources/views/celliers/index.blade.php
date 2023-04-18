@@ -22,18 +22,17 @@
         </p>
     </div>
     @endforeach
-    <div class="py-16">
-      <div class="text-center">
-        <a
-          href="/creer-cellier"
-          class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md md:w-auto bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-        >
-          Ajouter un cellier
-        </a>
-    </div>
-    </div>
+  </div>
+  <div class="text-center">
+    <a
+      href="{{route('celliers.creer')}}"
+      class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-accent_wine transition duration-200 rounded shadow-md border border-accent_wine hover:bg-accent_wine hover:text-main focus:shadow-outline focus:outline-none"
+    >
+      Ajouter un cellier
+    </a>
   </div>
 </div>
+
 
 @endsection
 

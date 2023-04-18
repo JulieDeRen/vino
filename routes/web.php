@@ -30,6 +30,7 @@ Route::post('/creer-cellier', [App\Http\Controllers\CellierController::class, 'i
 Route::get('/celliers/{cellier}', [App\Http\Controllers\CellierController::class, 'afficher'])->name('celliers.afficher');
 Route::get('/celliers-modifier/{cellier}', [App\Http\Controllers\CellierController::class, 'modifier'])->name('celliers.modifier');
 Route::put('/celliers-modifier/{cellier}', [App\Http\Controllers\CellierController::class, 'enregistrerModification']);
+Route::put('/ajouterBouteille/{cellier}', [App\Http\Controllers\CellierController::class, 'ajouterBouteille'])->name('celliers.ajouterBouteille');
 
 Route::get('/bouteilles', [BouteilleController::class, 'index'])->name('bouteilles');
 
