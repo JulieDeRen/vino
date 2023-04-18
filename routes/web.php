@@ -37,5 +37,5 @@ Route::put('/ajouterBouteille/{cellier}', [App\Http\Controllers\CellierControlle
 
 Route::get('/bouteilles', [BouteilleController::class, 'index'])->name('bouteilles');
 
-Route::get('/saq', [SAQController::class, 'index'])->name('bouteilles');
+Route::get('/saq', [SAQController::class, 'uploadVins'])->name('bouteilles');
 Route::get('/saq-show', [SAQController::class, 'show'])->name('bouteille.show');

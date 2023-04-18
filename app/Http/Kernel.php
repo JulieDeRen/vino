@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use App\Http\Controllers\SAQController;
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -22,6 +24,15 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     ];
+
+    /**
+     * Define the application's command schedule.
+     */
+    protected function schedule(Schedule $schedule): void
+    {
+        $saq = new SAQController;
+        $schedule->call($saq->uploadVins())->daily();
+    }
 
     /**
      * The application's route middleware groups.

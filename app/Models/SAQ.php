@@ -28,7 +28,7 @@ class SAQ extends Model
         $listeBouteilles = [];
 
 		$s = curl_init();
-		$url = "https://www.saq.com/fr/produits/vin/vin-rouge?p=".$page."&product_list_limit=".$nombre."&product_list_order=name_asc";
+		$url = "https://www.saq.com/fr/produits/vin?p=".$page."&product_list_limit=".$nombre."&product_list_order=name_asc";
 
         // Se prendre pour un navigateur pour berner le serveur de la saq...
         curl_setopt_array($s,array(
