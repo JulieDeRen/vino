@@ -77,8 +77,20 @@ closeBtn.onclick = function() {
 btn.onclick = function() {
   modal.style.display = "flex";
 };
+<<<<<<< HEAD
 </script>
 
+=======
+</script> --}}
+{{-- <section style="background-color: #eee;">
+  <div class="container py-5 px-5">
+    <div class="row justify-content-center mb-3">
+      <div class="col-md-12 col-xl-10">
+        <div class="card shadow-0 border rounded-3">
+          <div class="card-body">
+            <div class="row">
+              {{-- START Carte Bouteille Catalogue --}}
+>>>>>>> 5e9e894 (uptodate avec la racine)
 @endsection
           
 
