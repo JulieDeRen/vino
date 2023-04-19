@@ -15,6 +15,10 @@ module.exports = {
             },
             colors: {
                 main: "#FDFDFD",
+                secondary: {
+                    DEFAULT: "#ABA08D",
+                    80: "rgba(171, 160,	141, 0.8)",
+                },
                 accent_wine: {
                     DEFAULT: "#67375C",
                     80: "rgba(83, 42, 74, 0.8)",
