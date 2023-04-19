@@ -2,10 +2,13 @@
   <div>
       <h2 class="text-black">Composante de recherche</h2>
       <input type="text" class="border-green-500 border" @keyup="showSearchOptions($event.target.value)">
-      <ul>
-        <li v-for="vine in this.closestVineList" :key="vine.id">{{ vine.nom }}</li>
+      <ul id="vino_bouteille_id">
+        <div v-for="vine in this.closestVineList">
+          <li @click="selectionneOption(vine.id)" :key="vine.id">{{ vine.nom }}</li>
+        </div>
       </ul>
       <!-- Code de la barre de recherche ICI -->
+      <input type="hidden" name="vino_bouteille_id" :value="this.idBouteille">
   </div>
 </template>
 
@@ -16,7 +19,8 @@ export default {
       isMenuOpen: false,
       textInput: '',
       vineList: [],
-      closestVineList: []
+      closestVineList: [],
+      idBouteille: 1
     };
   },
   methods: {
@@ -38,6 +42,10 @@ export default {
           }
         })
       }
+    },
+    selectionneOption (text) {
+      console.log(text)
+      this.idBouteille = text;
     }
   },
   async beforeMount () {
