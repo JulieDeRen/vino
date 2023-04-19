@@ -5,8 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BouteilleController;
 use App\Http\Controllers\SAQController;
-use Illuminate\Support\Facades\Auth;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,14 +30,12 @@ Route::get('/celliers', [App\Http\Controllers\CellierController::class, 'index']
 Route::get('/creer-cellier', [App\Http\Controllers\CellierController::class, 'creer'])->name('celliers.creer');
 Route::post('/creer-cellier', [App\Http\Controllers\CellierController::class, 'insererCellier'])->name('celliers.insererCellier');
 Route::get('/celliers/{cellier}', [App\Http\Controllers\CellierController::class, 'afficher'])->name('celliers.afficher');
-Route::put('/celliers/{cellier}', [App\Http\Controllers\CellierController::class, 'ajouterBouteille']);
 Route::get('/celliers-modifier/{cellier}', [App\Http\Controllers\CellierController::class, 'modifier'])->name('celliers.modifier');
 Route::put('/celliers-modifier/{cellier}', [App\Http\Controllers\CellierController::class, 'enregistrerModification']);
+Route::put('/ajouterBouteille/{cellier}', [App\Http\Controllers\CellierController::class, 'ajouterBouteille'])->name('celliers.ajouterBouteille');
 
-Route::get('/bouteilles', [BouteilleController::class, 'index'])->name('bouteilles');
+Route::get('/bouteilles', [BouteilleController::class, 'getBouteilles'])->name('bouteilles');
+Route::get('/bouteilles', [BouteilleController::class, 'index'])->name('bouteilles.index');
 
-Route::get('/saq', )->name('bouteilles');
-
-
-Route::get('/DEsaq', [SAQController::class, 'uploadVins'])->name('bouteilles.dd');
+Route::get('/saq', [SAQController::class, 'index'])->name('bouteilles');
 Route::get('/saq-show', [SAQController::class, 'show'])->name('bouteille.show');
