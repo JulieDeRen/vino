@@ -7,6 +7,7 @@ use App\Models\Bouteille_Par_Cellier;
 use App\Models\Vino_Cellier;
 use App\Models\Bouteille;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 /**
@@ -28,8 +29,20 @@ class CellierController
   // **Ajouter Auth
   public function index()
   {
-    $cellier = Vino_Cellier::all();
-    return view('celliers.index', ['celliers' => $cellier]);
+    // Si une session existe, octroyer le numéro d'id de la session à l'utilisateur
+    // Rechercher tous les celliers oû l'utilisateurs_id correspond à la session en cours
+    // Afficher les celliers
+    // Sinon afficher login
+    if(Auth::id()){
+      $utilisateur_id = Auth::id();
+      $cellier = Vino_Cellier::select()
+      ->where('vino_celliers.utilisateurs_id', $utilisateur_id)
+      ->get();
+      return view('celliers.index', ['celliers' => $cellier]);
+    }
+    else {
+      return redirect(route('login'));
+    }
   }
   // formulaire de création d'un cellier 
   public function creer()
@@ -41,7 +54,7 @@ class CellierController
   public function insererCellier(Request $request)
   {
     // ** doit ajouter Auth qui vient du login
-    $request['utilisateurs_id'] = 1;
+    $request['utilisateurs_id'] = Auth::id();
     $cellier = Vino_Cellier::create([
       'nom' => $request->nom,
       'quantite_max' => $request->quantite_max,
@@ -110,8 +123,35 @@ class CellierController
   }
 
   // Formulaire d'ajout de bouteilles au cellier
-  public function ajouterBouteille(Vino_Cellier $cellier)
+  public function ajouterBouteille(Request $request, Vino_Cellier $cellier)
   {
-    return view('celliers.ajouterBouteille', ['cellier' => $cellier]);
+    
+    $bouteille = Bouteille_Par_Cellier::create([
+      'date_achat' => $request->date_achat,
+      'garde_jusqua' => $request->garde_jusqua,
+      'prix' => $request->prix,
+      'quantite' => $request->quantite,
+      'millesime' => $request->millesime,
+      'vino_cellier_id'=> $cellier->id, 
+      'vino_bouteille_id'=> $request->vino_bouteille_id  // vient de vue.js
+    ]);
+
+    $bouteille->save();
+    return redirect(route('celliers.afficher', $cellier->id));
   }
+
+  public function modifierNbBouteille(Request $request, $cellier_id, $bouteille_id)
+  {
+    // vérifier dans les modèles si on peut trouver un enregistrement correspondant
+    $cellier = Vino_Cellier::findOrFail($cellier_id);
+    $bouteille = Vino_Bouteille::findOrFail($bouteille_id);
+
+    $bouteilleParCellier = Bouteille_Par_Cellier::select()
+    ->where([
+      ['vino_bouteille_id', '=', $bouteille_id],
+      ['vino_cellier_id', '=', $cellier_id]
+    ])->update(['quantite' => $request->input('nbbouteille')]);
+
+  }
+
 }
