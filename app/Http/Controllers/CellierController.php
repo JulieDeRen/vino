@@ -31,7 +31,8 @@ class CellierController
   {
     // Si une session existe, octroyer le numéro d'id de la session à l'utilisateur
     // Rechercher tous les celliers oû l'utilisateurs_id correspond à la session en cours
-    // Afficher
+    // Afficher les celliers
+    // Sinon afficher login
     if(Auth::id()){
       $utilisateur_id = Auth::id();
       $cellier = Vino_Cellier::select()
@@ -138,4 +139,19 @@ class CellierController
     $bouteille->save();
     return redirect(route('celliers.afficher', $cellier->id));
   }
+
+  public function modifierNbBouteille(Request $request, $cellier_id, $bouteille_id)
+  {
+    // vérifier dans les modèles si on peut trouver un enregistrement correspondant
+    $cellier = Vino_Cellier::findOrFail($cellier_id);
+    $bouteille = Vino_Bouteille::findOrFail($bouteille_id);
+
+    $bouteilleParCellier = Bouteille_Par_Cellier::select()
+    ->where([
+      ['vino_bouteille_id', '=', $bouteille_id],
+      ['vino_cellier_id', '=', $cellier_id]
+    ])->update(['quantite' => $request->input('nbbouteille')]);
+
+  }
+
 }

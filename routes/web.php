@@ -27,12 +27,14 @@ Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('login', [LoginController::class, 'loginCustom'])->name('login.custom');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::post('/', [LoginController::class, 'loginCustom']);
 
 Route::get('/celliers', [App\Http\Controllers\CellierController::class, 'index'])->name('celliers.index');
 Route::get('/creer-cellier', [App\Http\Controllers\CellierController::class, 'creer'])->name('celliers.creer');
 Route::post('/creer-cellier', [App\Http\Controllers\CellierController::class, 'insererCellier'])->name('celliers.insererCellier');
 Route::get('/celliers/{cellier}', [App\Http\Controllers\CellierController::class, 'afficher'])->name('celliers.afficher');
 Route::put('/celliers/{cellier}', [App\Http\Controllers\CellierController::class, 'ajouterBouteille']);
+Route::put('/celliers/{cellier}/{idbouteille}', [App\Http\Controllers\CellierController::class, 'modifierNbBouteille']);
 Route::get('/celliers-modifier/{cellier}', [App\Http\Controllers\CellierController::class, 'modifier'])->name('celliers.modifier');
 Route::put('/celliers-modifier/{cellier}', [App\Http\Controllers\CellierController::class, 'enregistrerModification']);
 
