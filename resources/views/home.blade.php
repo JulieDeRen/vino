@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-
+{{-- 
 <div class="container mx-auto">
 
   <div class="max-w-screen-md mx-auto rounded-lg overflow-hidden mt-6 mb-7 p-3">
@@ -77,20 +77,21 @@ closeBtn.onclick = function() {
 btn.onclick = function() {
   modal.style.display = "flex";
 };
-<<<<<<< HEAD
-</script>
-
-=======
 </script> --}}
-{{-- <section style="background-color: #eee;">
-  <div class="container py-5 px-5">
-    <div class="row justify-content-center mb-3">
-      <div class="col-md-12 col-xl-10">
-        <div class="card shadow-0 border rounded-3">
-          <div class="card-body">
-            <div class="row">
-              {{-- START Carte Bouteille Catalogue --}}
->>>>>>> 5e9e894 (uptodate avec la racine)
+<!-- component -->
+<button class="bg-accent_wine text-main px-3 py- rounded hover:bg-accent_wine hover:text-main max-w-[300px]">+</button>
+
+<div class="flex items-center justify-center">
+  <svg class="h-8 w-8 text-accent_wine"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="9" />  <line x1="9" y1="12" x2="15" y2="12" />  <line x1="12" y1="9" x2="12" y2="15" /></svg>
+
+  <svg class="h-12 w-12 text-accent_wine"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+  </svg>
+
+  
+</div>
+
+  <!-- end of composant -->
 @endsection
           
 
