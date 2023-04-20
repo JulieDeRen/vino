@@ -5667,8 +5667,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.addEventListener('DOMContentLoaded', function () {
   var btnMobileMenu = document.getElementById("mobile-menu-button");
   var mobileMenu = document.getElementById("mobile-menu");
+  var logoWn = document.querySelector("#logo");
   btnMobileMenu.addEventListener("click", function () {
     mobileMenu.classList.toggle("hidden");
+    if (!mobileMenu.classList.contains("hidden")) {
+      logoWn.style.opacity = 0;
+    } else {
+      logoWn.style.opacity = 1;
+    }
   });
 
   // Close mobile menu when link is clicked
@@ -5680,7 +5686,7 @@ window.addEventListener('DOMContentLoaded', function () {
   });
 
   // Set mobile menu width to full screen width
-  mobileMenu.style.height = "100vh";
+  // mobileMenu.style.height = "100vh";
 });
 
 /***/ }),
