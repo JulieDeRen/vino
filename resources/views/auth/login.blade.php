@@ -9,7 +9,6 @@
           <form method="POST" action="{{ route('login') }}">
             @csrf
             <div class="mb-3">
-              <v-recherche />
               <input id="courriel" type="email" placeholder="{{ __('Email Address') }}" class="shadow appearance-none border rounded w-full py-3 px-3 text-text_primary leading-tight focus:outline-none focus:shadow-outline border-primary @error('courriel') border-red-500 @enderror" name="courriel" value="{{ old('courriel') }}" required autocomplete="courriel" autofocus>
               @error('courriel')
               <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p>

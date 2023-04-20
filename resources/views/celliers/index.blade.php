@@ -10,6 +10,14 @@
       </quote>
     </div>
   </div>
+  <div class="text-center">
+    <a
+      href="{{route('celliers.creer')}}"
+      class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-accent_wine transition duration-200 rounded shadow-md border border-accent_wine hover:bg-accent_wine hover:text-main focus:shadow-outline focus:outline-none"
+    >
+      Ajouter un cellier
+    </a>
+  </div>
   <div class="py-16 grid gap-8 row-gap-5 mb-8 lg:grid-cols-3 lg:row-gap-8">
     @foreach($celliers as $cellier)
     <div onclick="location.href=`{{route('celliers.afficher', ['cellier' => $cellier->id])}}`">
@@ -22,14 +30,6 @@
         </p>
     </div>
     @endforeach
-  </div>
-  <div class="text-center">
-    <a
-      href="{{route('celliers.creer')}}"
-      class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-accent_wine transition duration-200 rounded shadow-md border border-accent_wine hover:bg-accent_wine hover:text-main focus:shadow-outline focus:outline-none"
-    >
-      Ajouter un cellier
-    </a>
   </div>
 </div>
 
