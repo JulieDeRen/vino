@@ -2,16 +2,16 @@
   <div class="max-w-8xl mx-auto px-2 sm:px-6 lg:px-8">
     <div class="relative flex items-center justify-between h-16">
       <!-- Logo -->
-      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-        <button id="mobile-menu-button" type="button" class="fixed top-3 right-5 inline-flex items-center justify-center p-2 rounded-md text-section_title hover:text-main hover:bg-accent_wine focus:outline-none focus:bg-accent_wine focus:text-main transition duration-150 ease-in-out">
-  <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-  </svg>
-</button>
+      <div class="absolute inset-y-0 left-0 flex items-center lg:hidden">
+        <button id="mobile-menu-button" type="button" class="fixed top-3 right-3 inline-flex items-center justify-center p-2  rounded-md text-section_title hover:text-accent_wine hover:border-accent_wine border-3  focus:outline-none focus:border-accent_wine focus:text-accent_wine transition duration-150 ease-in-out">
+          <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </div>
       <!-- Menu -->
       <div class="hidden sm:flex sm:items-center sm:justify-between w-full">
-        <div class="flex-shrink-0">
+        <div id="logo" class="flex-shrink-0">
           <a href="/" class="text-accent_wine uppercase tracking-wide font-bold"><img src="{{ asset('img/svg/logoWN.svg') }}" alt="logo-wineNot" class="mx-auto"></a>
         </div>
         <div class="hidden sm:block sm:ml-6">
@@ -65,9 +65,9 @@
     </div>
   </div>
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden sm:hidden">
+  <div id="mobile-menu" class="hidden lg:hidden">
     <div class="space-y-4 flex flex-col items-center justify-center">
-    <a href="/" class="text-accent_wine uppercase tracking-wide font-bold pb-4"><img src="{{ asset('img/svg/logoWN.svg') }}" alt="logo-wineNot" class="mx-auto"></a>
+      <a href="/" class="text-accent_wine uppercase tracking-wide font-bold pb-4"><img src="{{ asset('img/svg/logoWN.svg') }}" alt="logo-wineNot" class="mx-auto"></a>
       <a href="{{ route('celliers.index') }}" class="justify-center font-medium tracking-wide text-accent_wine transition-colors duration-200 hover:text-section_title" aria-label="celliers" title="celliers">
         Celliers
       </a>
@@ -95,7 +95,7 @@
       <a href="#" class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-accent_wine transition duration-200 border border-accent_wine hover:bg-accent_wine hover:text-main" aria-label="Compte" title="Compte">
         Compte
       </a>
-      <a role="nave-link"  class="text-article_title">
+      <a role="nave-link" class="text-article_title">
         {{ Auth::user()->nom }} <!--  Affichage du nom Utilisateur. À modifier   -->
       </a>
       @endguest
