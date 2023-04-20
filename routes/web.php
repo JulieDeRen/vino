@@ -43,3 +43,8 @@ Route::get('/saq', )->name('bouteilles');
 
 Route::get('/DEsaq', [SAQController::class, 'uploadVins'])->name('bouteilles.dd');
 Route::get('/saq-show', [SAQController::class, 'show'])->name('bouteille.show');
+
+
+
+// route to use for testing 
+Route::get('/test', [HomeController::class, 'testPage'])->name('test');
