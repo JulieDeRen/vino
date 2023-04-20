@@ -61,7 +61,7 @@ class LoginController extends Controller
     // Si l'utilisateur existe et est actif, tentative de connexion avec Auth::attempt()
     if (Auth::attempt(['courriel' => $request->courriel, 'password' => $request->password])) {
         // Si la connexion réussit, redirection vers la page d'accueil
-        return redirect()->intended('/celliers');
+        return redirect('/celliers');
     }
 
     // Si la connexion échoue, redirection vers la page de connexion avec un message d'erreur
