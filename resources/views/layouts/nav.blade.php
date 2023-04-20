@@ -65,7 +65,7 @@
     </div>
   </div>
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden sm:hidden">
+  <div id="mobile-menu" class="block sm:hidden">
     <div class="space-y-4 flex flex-col items-center justify-center">
     <a href="/" class="text-accent_wine uppercase tracking-wide font-bold pb-4"><img src="{{ asset('img/svg/logoWN.svg') }}" alt="logo-wineNot" class="mx-auto"></a>
       <a href="{{ route('celliers.index') }}" class="justify-center font-medium tracking-wide text-accent_wine transition-colors duration-200 hover:text-section_title" aria-label="celliers" title="celliers">

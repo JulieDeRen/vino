@@ -14,8 +14,7 @@ class BouteilleController extends Controller
      */
     public function index()
     {
-        $liste = Bouteille::all();
-        echo(json_encode($liste));
+
         //return view('bouteille.index')->with('bouteilles', json_decode($liste, true));
     }
 
@@ -83,6 +82,13 @@ class BouteilleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function listeBouteilles()
+    {
+        $liste = Bouteille::all();
+        echo(json_encode($liste));
+        //return view('bouteille.index')->with('bouteilles', json_decode($liste, true));
     }
 
 /*

@@ -16,7 +16,7 @@
 
 <!-- Grille composante -->
   <div class="grid gap-5 lg:grid-cols-4 sm:max-w-sm sm:mx-auto lg:max-w-full">
-
+    <v-recherche />
     <!-- carte -->
     <div class="overflow-hidden border border-accent_wine duration-300 flex flex-col gap-3 items-center max-w-[315px] bg-white rounded-lg max-h-55 p-4">
       <a href="/" aria-label="Article"><img src="https://www.saq.com/media/catalog/product/1/5/15116225-1_1679602083.png?width=367&amp;height=550&amp;canvas=367,550&amp;quality=80&amp;fit=bounds" class="object-cover max-h-[350px] rounded" alt="vine-img" /></a>

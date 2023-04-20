@@ -5322,38 +5322,47 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       isMenuOpen: false,
       textInput: '',
       vineList: [],
-      closestVineList: []
+      closestVineList: [],
+      choixBouteille: {},
+      selectedVine: false
     };
   },
   methods: {
     showSearchOptions: function showSearchOptions(text) {
-      console.log(text);
+      var _this = this;
+      this.textInput = text;
       // Code pour filtrer la recherche
       this.closestVineList = [];
-      var i = 0;
       if (text !== "") {
-        this.closestVineList = this.vineList.filter(function (elem) {
-          if (String(elem.nom.toLowerCase()).startsWith(text.toLowerCase()) && i <= 3) {
-            i++;
-            return true;
-          } else if (String(elem.nom.toLowerCase()).includes(text.toLowerCase()) && i <= 3) {
-            i++;
-            return true;
-          } else {
-            return false;
+        // Only START WITH NAME ELEMENTS --- FIRST
+        this.vineList.forEach(function (vine) {
+          if (String(vine.nom.toLowerCase()).startsWith(text.toLowerCase())) {
+            _this.closestVineList.push(vine);
           }
         });
+        // Only CONTAINS && NOT START WITH --- AFTER
+        this.vineList.forEach(function (vine) {
+          if (!String(vine.nom.toLowerCase()).startsWith(text.toLowerCase()) && String(vine.nom.toLowerCase()).includes(text.toLowerCase())) {
+            _this.closestVineList.push(vine);
+          }
+        });
+        this.closestVineList = this.closestVineList.slice(0, 4);
       }
+    },
+    takeBouteille: function takeBouteille(vine) {
+      this.textInput = vine.nom;
+      this.choixBouteille = vine;
+      this.selectedVine = true;
     }
   },
   beforeMount: function beforeMount() {
-    var _this = this;
+    var _this2 = this;
     return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
             axios.get('/bouteilles').then(function (response) {
-              _this.vineList = response.data;
+              _this2.vineList = response.data;
             });
           case 1:
           case "end":
@@ -5381,12 +5390,17 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("h2", {
+  return _c("div", {
+    staticClass: "flex"
+  }, [_c("div", [_c("h2", {
     staticClass: "text-black"
   }, [_vm._v("Composante de recherche")]), _vm._v(" "), _c("input", {
     staticClass: "border-green-500 border",
     attrs: {
       type: "text"
+    },
+    domProps: {
+      value: this.textInput
     },
     on: {
       keyup: function keyup($event) {
@@ -5395,9 +5409,33 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("ul", _vm._l(this.closestVineList, function (vine) {
     return _c("li", {
-      key: vine.id
+      key: vine.id,
+      staticClass: "block border p-2",
+      on: {
+        click: function click($event) {
+          return _vm.takeBouteille(vine);
+        }
+      }
     }, [_vm._v(_vm._s(vine.nom))]);
-  }), 0)]);
+  }), 0), _vm._v(" "), _c("input", {
+    attrs: {
+      type: "hidden"
+    },
+    domProps: {
+      value: this.choixBouteille
+    }
+  })]), _vm._v(" "), _c("div", [_c("h3", [_vm._v("Carte")]), _vm._v(" "), _vm.selectedVine ? _c("div", {
+    staticClass: "card flex"
+  }, [_c("header", {
+    staticClass: "card-header"
+  }, [_c("img", {
+    attrs: {
+      src: this.choixBouteille.image,
+      alt: this.choixBouteille.nom
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("h2", [_vm._v(_vm._s(this.choixBouteille.nom))])])]) : _vm._e()])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -5409,14 +5447,17 @@ render._withStripped = true;
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _js_functions_menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js_functions/menu */ "./resources/js/js_functions/menu.js");
+/* harmony import */ var _js_functions_menu__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_js_functions_menu__WEBPACK_IMPORTED_MODULE_0__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-//import './js_functions/functions';
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js")["default"]);
@@ -5482,6 +5523,33 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/js_functions/menu.js":
+/*!*******************************************!*\
+  !*** ./resources/js/js_functions/menu.js ***!
+  \*******************************************/
+/***/ (() => {
+
+window.addEventListener('DOMContentLoaded', function () {
+  var btnMobileMenu = document.getElementById("mobile-menu-button");
+  var mobileMenu = document.getElementById("mobile-menu");
+  btnMobileMenu.addEventListener("click", function () {
+    mobileMenu.classList.toggle("hidden");
+  });
+
+  // Close mobile menu when link is clicked
+  var mobileMenuLinks = document.querySelectorAll("#mobile-menu a");
+  mobileMenuLinks.forEach(function (link) {
+    link.addEventListener("click", function () {
+      mobileMenu.classList.add("hidden");
+    });
+  });
+
+  // Set mobile menu width to full screen width
+  mobileMenu.style.height = "100vh";
+});
 
 /***/ }),
 
@@ -40330,6 +40398,18 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
 /******/ 		};
 /******/ 	})();
 /******/ 	

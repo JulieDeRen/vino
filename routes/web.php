@@ -36,7 +36,7 @@ Route::put('/celliers/{cellier}', [App\Http\Controllers\CellierController::class
 Route::get('/celliers-modifier/{cellier}', [App\Http\Controllers\CellierController::class, 'modifier'])->name('celliers.modifier');
 Route::put('/celliers-modifier/{cellier}', [App\Http\Controllers\CellierController::class, 'enregistrerModification']);
 
-Route::get('/bouteilles', [BouteilleController::class, 'index'])->name('bouteilles');
+Route::get('/bouteilles', [BouteilleController::class, 'listeBouteilles'])->name('bouteilles');
 
 Route::get('/saq', )->name('bouteilles');
 
