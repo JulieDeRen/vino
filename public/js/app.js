@@ -5353,7 +5353,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.textInput = vine.nom;
       this.choixBouteille = vine;
       this.selectedVine = true;
-    }
+    },
+    onSubmit: function onSubmit() {}
   },
   beforeMount: function beforeMount() {
     var _this2 = this;
@@ -5392,9 +5393,13 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "flex"
-  }, [_c("div", [_c("h2", {
+  }, [_c("div", {
+    staticClass: "grid"
+  }, [_c("h2", {
     staticClass: "text-black"
-  }, [_vm._v("Composante de recherche")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Composante de recherche")]), _vm._v(" "), _c("div", {
+    staticClass: "flex relative"
+  }, [_c("input", {
     staticClass: "border-green-500 border",
     attrs: {
       type: "text"
@@ -5407,7 +5412,27 @@ var render = function render() {
         return _vm.showSearchOptions($event.target.value);
       }
     }
-  }), _vm._v(" "), _c("ul", _vm._l(this.closestVineList, function (vine) {
+  }), _vm._v(" "), _c("input", {
+    attrs: {
+      type: "hidden"
+    },
+    domProps: {
+      value: this.choixBouteille
+    }
+  }), _vm._v(" "), _c("button", {
+    staticClass: "block border border-green-500 m-1 p-1",
+    attrs: {
+      type: "submit"
+    },
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.onSubmit();
+      }
+    }
+  }, [_vm._v("Recherche")])]), _vm._v(" "), _c("ul", {
+    staticClass: "relative"
+  }, _vm._l(this.closestVineList, function (vine) {
     return _c("li", {
       key: vine.id,
       staticClass: "block border p-2",
@@ -5417,21 +5442,19 @@ var render = function render() {
         }
       }
     }, [_vm._v(_vm._s(vine.nom))]);
-  }), 0), _vm._v(" "), _c("input", {
-    attrs: {
-      type: "hidden"
-    },
-    domProps: {
-      value: this.choixBouteille
+  }), 0)]), _vm._v(" "), _c("div", [_c("h3", [_vm._v("Carte")]), _vm._v(" "), _vm.selectedVine ? _c("div", {
+    staticClass: "card flex",
+    staticStyle: {
+      "max-width": "300px"
     }
-  })]), _vm._v(" "), _c("div", [_c("h3", [_vm._v("Carte")]), _vm._v(" "), _vm.selectedVine ? _c("div", {
-    staticClass: "card flex"
   }, [_c("header", {
     staticClass: "card-header"
   }, [_c("img", {
+    staticClass: "max-w-none",
     attrs: {
-      src: this.choixBouteille.image,
-      alt: this.choixBouteille.nom
+      src: this.choixBouteille.url_img,
+      alt: this.choixBouteille.nom,
+      width: "150"
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "card-body"

@@ -1,22 +1,25 @@
 <template>
   <div class="flex">
-    <div>
+    <div class="grid">
       <h2 class="text-black">Composante de recherche</h2>
-      <input type="text" class="border-green-500 border" @keyup="showSearchOptions($event.target.value);"
-      :value="this.textInput">
-      <ul>
+      <div class="flex relative">
+        <input type="text" class="border-green-500 border" @keyup="showSearchOptions($event.target.value);"
+        :value="this.textInput">
+        <input type="hidden" :value="this.choixBouteille">
+        <button type="submit" @submit.prevent="onSubmit()" class="block border border-green-500 m-1 p-1">Recherche</button>
+        <!-- Code de la barre de recherche ICI -->
+      </div>
+      <ul class="relative">
         <li v-for="vine in this.closestVineList" :key="vine.id" @click="takeBouteille(vine)"
         class="block border p-2"
         >{{ vine.nom }}</li>
       </ul>
-      <input type="hidden" :value="this.choixBouteille">
-      <!-- Code de la barre de recherche ICI -->
     </div>
     <div>
       <h3>Carte</h3>
-      <div class="card flex" v-if="selectedVine">
+      <div class="card flex" v-if="selectedVine" style="max-width: 300px;">
         <header class="card-header">
-          <img :src="this.choixBouteille.image" :alt="this.choixBouteille.nom">
+          <img :src="this.choixBouteille.url_img" :alt="this.choixBouteille.nom" class="max-w-none" width="150">
         </header>
         <div class="card-body">
           <h2>{{ this.choixBouteille.nom }}</h2>
@@ -65,6 +68,9 @@ export default {
       this.textInput = vine.nom
       this.choixBouteille = vine;
       this.selectedVine = true;
+    },
+    onSubmit () {
+
     }
   },
   async beforeMount () {

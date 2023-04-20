@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Vino_Cellier;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -64,11 +65,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'nom' => $data['name'],
             'courriel' => $data['courriel'],
             'password' => Hash::make($data['password']),
             'utilisateur_privilege_id' => 1,
         ]);
+
+        Vino_Cellier::create([
+            'nom' => 'MonCellier',
+            'quantite_max' => 100,
+            'utilisateurs_id' => $user['id'],
+            'image' => 'img/celliers/cellier_moderne_led.jpg'
+        ]);
+        return $user;
     }
 }
