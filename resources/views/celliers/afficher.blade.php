@@ -1,7 +1,17 @@
 @extends('layouts.app')
 @section('content')
 
+
 <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+       <!-- Redirection vers modifier les infos du cellier -->
+       <div class="text-center w-full">
+        <a
+          href="{{route('celliers.modifier', ['cellier' => $cellier->id])}}"
+          class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-accent_wine transition duration-200 rounded shadow-md hover:bg-accent_wine hover:text-main focus:shadow-outline focus:outline-none"
+        >
+          Modifier les informations du cellier
+        </a>
+      </div>
   <div class="py-16 grid gap-8 row-gap-5 mb-8 lg:grid-cols-3 lg:row-gap-8">
     <div onclick="location.href=`{{route('celliers.afficher', $cellier->id)}}`">
       <!--<img class="object-cover w-full h-56 mb-6 rounded shadow-lg md:h-64 xl:h-80" src="/{{$cellier->image}}" alt="{{$cellier->nom}}" />-->
@@ -33,6 +43,18 @@
               <input id="quantite" name="quantite" class="appearance-none inline-flex bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="Quantité de bouteilles à ajouter">
             </label>
             <label>
+              <input id="date_achat" name="date_achat" class="appearance-none inline-flex bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="date" placeholder="Garde jusqu'à quand">
+            </label>
+            <label>
+              <input id="garde_jusqua" name="garde_jusqua" class="appearance-none inline-flex bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="date" placeholder="Garde jusqu'à quand">
+            </label>
+            <label>
+              <input id="prix" name="prix" class="appearance-none inline-flex bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="Prix payé">
+            </label>
+            <label>
+              <input id="millesime" name="millesime" class="appearance-none inline-flex bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="Millésime">
+            </label>
+            <label>
               <input class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-accent_wine transition duration-200 rounded shadow-md border border-accent_wine hover:bg-accent_wine hover:text-main focus:shadow-outline focus:outline-none" 
               type="submit" 
               value="Ajouter au cellier">
@@ -42,30 +64,35 @@
       </div>
     
     <section class="flex flex-wrap">
+      <!-- Containeur principal -->
+      <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+
+      <!-- Grille composante -->
+        <div class="grid gap-5 lg:grid-cols-4 sm:max-w-sm sm:mx-auto lg:max-w-full">
         @foreach($bouteilles as $bouteille)
-            <div class="block border border-green-500 max-w-md:">
-                <img class="" src="{{ $bouteille->imageSAQ }}" alt="cellier à Malibu" width="200" />
-                <h3 class="mb-2 text-3xl font-bold leading-none sm:text-2xl">
-                {{ $bouteille->nomSAQ }}
-                </h3>
-                <p class="text-gray-700">
-                ${{ $bouteille->prixPaye }}
-                </p>
-            </div>
+        <!-- carte -->
+        <div class="overflow-hidden  duration-300 flex flex-col gap-3 items-center max-w-[315px] bg-white rounded-lg max-h-55 p-4">
+          <a href="/" aria-label="Article"><img src="{{ $bouteille->imageSAQ }}" class="object-cover max-h-[350px] rounded" alt="vine-img" /></a>
+          <div class="text-center flex flex-col gap-2.5">
+            <span class="font-semibold text-section_title">Cellier</span>
+            <a href="/" aria-label="Article" class="inline-block text-article_title">
+              <p class="sm:text-2xl text-xl font-bold leading-6">{{ $bouteille->nomSAQ }}</p>
+            </a>
+            <!-- ici va la note avec qty -->
+
+          </div>
+          <!-- ici va le compteur -->
+          <v-compteur :nbbouteille="{{ $bouteille->quantiteBouteille }}" :id="{{ $bouteille->vino_bouteille_id }}"/>
+        </div>
+        <!-- fin carte -->
+
         @endforeach
+
+        </div>
+      </div>
+
     </section>
 
-   
-
-      <!-- Redirection vers modifier les infos du cellier -->
-      <div class="text-center w-full">
-        <a
-          href="{{route('celliers.modifier', ['cellier' => $cellier->id])}}"
-          class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-accent_wine transition duration-200 rounded shadow-md border border-accent_wine hover:bg-accent_wine hover:text-main focus:shadow-outline focus:outline-none"
-        >
-          Modifier les informations du cellier
-        </a>
-      </div>
     </div>
   </div>
 </div>

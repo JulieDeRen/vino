@@ -1,11 +1,32 @@
 <template>
-  <div>
+  <div class="flex">
+    <div class="grid">
       <h2 class="text-black">Composante de recherche</h2>
-      <input type="text" class="border-green-500 border" @keyup="showSearchOptions($event.target.value)">
-      <ul>
-        <li v-for="vine in this.closestVineList" :key="vine.id">{{ vine.nom }}</li>
+      <div class="flex relative">
+        <input type="text" class="border-green-500 border" @keyup="showSearchOptions($event.target.value);"
+        :value="this.textInput">
+        <input type="hidden" :value="this.choixBouteille">
+        <button type="submit" @submit.prevent="onSubmit()" class="block border border-green-500 m-1 p-1">Recherche</button>
+        <!-- Code de la barre de recherche ICI -->
+      </div>
+      <ul class="relative">
+        <li v-for="vine in this.closestVineList" :key="vine.id" @click="takeBouteille(vine)"
+        class="block border p-2"
+        >{{ vine.nom }}</li>
       </ul>
-      <!-- Code de la barre de recherche ICI -->
+    </div>
+    <div>
+      <h3>Carte</h3>
+      <div class="card flex" v-if="selectedVine" style="max-width: 300px;">
+        <header class="card-header">
+          <img :src="this.choixBouteille.url_img" :alt="this.choixBouteille.nom" class="max-w-none" width="150">
+        </header>
+        <div class="card-body">
+          <h2>{{ this.choixBouteille.nom }}</h2>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -16,28 +37,40 @@ export default {
       isMenuOpen: false,
       textInput: '',
       vineList: [],
-      closestVineList: []
+      closestVineList: [],
+      choixBouteille: {},
+      selectedVine: false
     };
   },
   methods: {
     showSearchOptions (text) {
-      console.log(text);
+      this.textInput = text;
       // Code pour filtrer la recherche
       this.closestVineList = [];
-      let i = 0;
       if(text !== "") {
-        this.closestVineList = this.vineList.filter(elem => {
-          if(String(elem.nom.toLowerCase()).startsWith(text.toLowerCase()) && i<=3) {
-            i++;
-            return true;
-          } else if(String(elem.nom.toLowerCase()).includes(text.toLowerCase()) && i<=3) {
-            i++;
-            return true;
-          } else {
-            return false;
+        // Only START WITH NAME ELEMENTS --- FIRST
+        this.vineList.forEach( (vine) => {
+          if(String(vine.nom.toLowerCase()).startsWith(text.toLowerCase())) {
+            this.closestVineList.push(vine)
           }
         })
+        // Only CONTAINS && NOT START WITH --- AFTER
+        this.vineList.forEach( (vine) => {
+          if(!String(vine.nom.toLowerCase()).startsWith(text.toLowerCase())
+          && String(vine.nom.toLowerCase()).includes(text.toLowerCase())) {
+            this.closestVineList.push(vine);
+          }
+        })
+        this.closestVineList = this.closestVineList.slice(0, 4);
       }
+    },
+    takeBouteille (vine) {
+      this.textInput = vine.nom
+      this.choixBouteille = vine;
+      this.selectedVine = true;
+    },
+    onSubmit () {
+
     }
   },
   async beforeMount () {
