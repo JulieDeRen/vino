@@ -5,7 +5,7 @@
       <img src="{{asset('img/svg/logoWN-white.svg')}}" alt="company-logo" width="130">
     </a>
 
-    <div class="flex flex-col-reverse justify-between pt-7  lg:flex-row">
+
     <p class="text-sm items-end text-secondary">
       © Copyright 2023 WineNot Inc. All rights reserved.
     </p>

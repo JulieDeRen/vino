@@ -25,6 +25,11 @@ class HomeController extends Controller
     {
         return redirect('/celliers');
     }
+
+    public function testPage()
+    {
+        return view('test');
+    }
 }
 
 
