@@ -8,8 +8,13 @@
       <div class="bg-white lg:w-1/2">
         <div class="container mx-auto py-16 px-8">
           <h2 class="text-4xl font-bold mb-8">Ajout de Bouteilles</h2>
-          <p class="text-gray-700 mb-4">Veuillez remplir le formulaire suivant pour rentres des bouteilles qui ne sont pas sur SAQ.</p>
-          <form action="#" method="post">
+          <p class="text-gray-700 mb-4">Veuillez remplir le formulaire suivant pour rentrer des bouteilles qui ne sont pas sur SAQ.</p>
+          <form method="post" enctype="multipart/form-data">
+          @csrf
+          @method('PUT')
+          <section class="flex flex-wrap">
+                <v-recherche />
+            </section>
             <div class="mb-4">
               <label class="block text-gray-700 font-bold mb-2" for="nom_bouteille">
                 Nom
