@@ -1,8 +1,62 @@
 @extends('layouts.app')
 @section('content')
-{{-- 
-<div class="container mx-auto">
 
+
+
+ <div class="flex flex-col lg:flex-row h-screen items-center">
+  <div class="bg-gray-900 lg:w-1/2">
+    <div class="flex flex-col justify-center lg:h-screen">
+      <img src="img/form_wine.jpg" alt="" class="h-full w-full object-cover">
+    </div>
+  </div>
+  <div class="bg-white lg:w-1/2">
+    <div class="container mx-auto py-16 px-8">
+      <h2 class="text-4xl font-bold mb-8">Modifier Cellier</h2>
+      <p class="text-gray-700 mb-4">Veuillez remplir le formulaire suivant pour rentrer des bouteilles qui ne sont pas sur SAQ.</p>
+      <form action="{{route('celliers.insererCellier')}}" method="post" enctype="multipart/form-data" class="w-full">
+        @csrf
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="nom">
+            Nom
+          </label>
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nom" name="nom" type="text" placeholder="Entrez le nom du cellier" required>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="quantite_max"">
+            Quantité
+          </label>
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="quantite_max" name="quantite_max" type="number" placeholder="Capacité maximale du cellier">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="description">
+            Description
+          </label>
+          <textarea class="shadow appearance-none border rounded w-full py-5 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="description" name="description" type="text" placeholder="Ajouter un descriptif pour ce cellier"></textarea>
+        </div>
+        <div class="w-full px-3 cellier-img">
+          <label>
+            <input type="radio" name="image" value="img/celliers/cellierCaveVinMontWashington.webp">
+            <img src="{{url('img/celliers/cellierCaveVinMontWashington.webp')}}">
+          </label>
+          <label>
+            <input type="radio" name="image" value="img/celliers/large_Charlevoix-Wine-Cellar-with-Dog.jpg"  checked>
+            <img src="{{url('img/celliers/large_Charlevoix-Wine-Cellar-with-Dog.jpg')}}">
+          </label>
+          <label>
+            <input type="radio" name="image" value="img/celliers/cellier_verre_moderne.jpg">
+            <img src="{{url('img/celliers/cellier_verre_moderne.jpg')}}">
+          </label>
+        </div>
+        <div class="flex items-center justify-between">
+          <button class="bg-accent_wine hover:accent_wine-80 text-main font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+            Ajouter
+            </button>
+            </div>
+            </form>
+            </div>
+            </div>
+            </div>
+{{-- ------------------------------------------------- --}}
   <div class="max-w-screen-md mx-auto rounded-lg overflow-hidden mt-6 mb-7 p-3">
     <div class="border border-accent_wine rounded-lg">
       <div class="bg-gray-50 rounded-md rounded-t-lg">
@@ -77,19 +131,10 @@ closeBtn.onclick = function() {
 btn.onclick = function() {
   modal.style.display = "flex";
 };
-</script> --}}
+</script>
 <!-- component -->
-<button class="bg-accent_wine text-main px-3 py- rounded hover:bg-accent_wine hover:text-main max-w-[300px]">+</button>
 
-<div class="flex items-center justify-center">
-  <svg class="h-8 w-8 text-accent_wine"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="9" />  <line x1="9" y1="12" x2="15" y2="12" />  <line x1="12" y1="9" x2="12" y2="15" /></svg>
 
-  <svg class="h-12 w-12 text-accent_wine"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
-  </svg>
-
-  
-</div>
 
   <!-- end of composant -->
 @endsection
