@@ -125,8 +125,24 @@ class CellierController
     return redirect(route('celliers.index'))->withSuccess('Article mis à jour.');
   }
 
+  // Mykhael Function 
+  public function store(Request $request, Vino_Cellier $cellier) {
+    Bouteille_Par_Cellier::create([
+      'date_achat' => $request->date_achat,
+      'garde_jusqua' => $request->garde_jusqua,
+      'prix' => $request->vino_bouteille_prix,
+      'quantite' => $request->quantite,
+      'millesime' => $request->millesime,
+      'vino_cellier_id'=> $cellier->id, 
+      'vino_bouteille_id'=> $request->vino_bouteille_id  // vient de vue.js
+    ]);
+
+    return redirect(route('celliers.afficher', $cellier->id));
+  }
+
+
   // Formulaire d'ajout de bouteilles au cellier
-  public function ajouterBouteille(Request $request, Vino_Cellier $cellier)
+  /*public function ajouterBouteille(Request $request, Vino_Cellier $cellier)
   {
     return($request->vino_bouteille['id']);
     // valider si bouteille pas présente dans cellier
@@ -157,7 +173,7 @@ class CellierController
       ])->update(['quantite' => $totalBouteille]);  
     }
     return redirect(route('celliers.afficher', $cellier->id));
-  }
+  }*/
 
   public function modifierNbBouteille(Request $request, $cellier_id, $bouteille_id)
   {
