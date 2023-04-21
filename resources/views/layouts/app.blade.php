@@ -26,17 +26,12 @@
 
 <body>
   <div id="app">
-    {{-- @include('layouts.nav') --}}
-
-</div>
-    <main class="py-8">
-
+    @include('layouts.nav')
     <main class="py-4">
-
       @yield('content')
     </main>
-    @include('layouts.footer')
   </div>
+  @include('layouts.footer')
 </body>
 
 </html>
