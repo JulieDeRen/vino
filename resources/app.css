@@ -10769,3 +10769,7 @@ textarea.form-control-lg {
     display: none !important;
   }
 }/*# sourceMappingURL=app.css.map */
+
+.group:focus .group-focus\:flex {
+  display: flex;
+}
