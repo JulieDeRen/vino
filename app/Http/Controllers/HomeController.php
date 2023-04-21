@@ -25,12 +25,6 @@ class HomeController extends Controller
     {
         return view('home');
     }
-
-// function made to test pages 
-    public function testPage()
-    {
-        return view('test');
-    }
 }
 
 
