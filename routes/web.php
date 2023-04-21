@@ -26,7 +26,7 @@ Auth::routes();
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('login', [LoginController::class, 'loginCustom'])->name('login.custom');
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::post('/', [LoginController::class, 'loginCustom']);
 
 Route::get('/celliers', [App\Http\Controllers\CellierController::class, 'index'])->name('celliers.index');

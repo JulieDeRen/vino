@@ -5,7 +5,7 @@
       <div class="flex relative">
         <input type="text" class="border-green-500 border" @keyup="showSearchOptions($event.target.value);"
         :value="this.textInput">
-        <input type="hidden" :value="this.choixBouteille">
+        <input name="vino_bouteille_id" type="hidden" :value="this.choixBouteille.id">
         <button type="submit" @submit.prevent="onSubmit()" class="block border border-green-500 m-1 p-1">Recherche</button>
         <!-- Code de la barre de recherche ICI -->
       </div>
