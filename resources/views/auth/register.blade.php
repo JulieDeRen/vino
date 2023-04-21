@@ -9,8 +9,12 @@
         <h2 class="text-center text-accent_wine text-2xl mb-5">{{ __('Inscription') }}</h2>
         <form method="POST" action="{{ route('register') }}">
           @csrf
-          <div class="mb-4">
-            <input id="name" type="text" placeholder="{{ __('Nom') }}" class="appearance-none border rounded w-full py-3 px-3 text-accent_wine leading-tight focus:outline-none border-accent_wine @error('name') border-red-500 @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+          <div class="flex gap-2 mb-4">
+            <input id="firstName" type="text" placeholder="{{ __('Prenom') }}" class="appearance-none border rounded w-full py-3 px-3 text-accent_wine leading-tight focus:outline-none border-accent_wine @error('name') border-red-500 @enderror" name="nom" value="{{ old('name') }}" required autocomplete="name" autofocus>
+            @error('name')
+            <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p>
+            @enderror
+            <input id="lastName" type="text" placeholder="{{ __('Nom') }}" class="appearance-none border rounded w-full py-3 px-3 text-accent_wine leading-tight focus:outline-none border-accent_wine @error('name') border-red-500 @enderror" name="prenom" value="{{ old('name') }}" required autocomplete="name" autofocus>
             @error('name')
             <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p>
             @enderror
@@ -28,7 +32,7 @@
             @enderror
           </div>
           <div class="mb-5">
-            <input id="password-confirm" type="password" placeholder="{{ __('Mod de passe confirmé') }}" class="appearance-none border rounded w-full py-3 px-3 text-accent_wine leading-tight focus:outline-none border-accent_wine" name="password_confirmation" required autocomplete="new-password">
+            <input id="password-confirm" type="password" placeholder="{{ __('Mot de passe confirmé') }}" class="appearance-none border rounded w-full py-3 px-3 text-accent_wine leading-tight focus:outline-none border-accent_wine" name="password_confirmation" required autocomplete="new-password">
           </div>
           <div class="text-center">
             <button type="submit" class="bg-accent_wine space-x-1 font-normal border text-main hover:border-accent_wine hover:bg-transparent hover:text-accent_wine py-2 px-5 uppercase rounded focus:outline-none">
