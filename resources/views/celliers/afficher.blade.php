@@ -1,8 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-
-<div class="container mx-auto py-16 px-8 sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+<div class="container mx-auto py-8 px-8 sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
        <!-- Redirection vers modifier les infos du cellier -->
        <div class="text-center w-full">
         <a  href="{{route('celliers.modifier', ['cellier' => $cellier->id])}}" class="inline-flex items-center justify-center space-x-2 py-3 px-4 bg-accent_wine hover:accent_wine-80 text-main font-bold ml-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline">
