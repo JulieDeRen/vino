@@ -37,9 +37,14 @@ class DownloadDataSAQ implements ShouldQueue
     {
         set_time_limit(0);
         $saq = new SAQ();
-        $pages = 40;
+        $pages = 86;
+        $firstVineTook = false;
+
         for($i = 1; $i <= $pages; $i++) {
             $liste = $saq->getProduits(96, $i);
+            if(!$firstVineTook) {
+                
+            }
             foreach ($liste as $bouteille) {
                 // Vérification de l'existance de la bouteille dans la base de
                 $checkList = Bouteille::where('code_saq', $bouteille->desc->code_SAQ)->get();
