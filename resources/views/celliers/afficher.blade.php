@@ -30,13 +30,13 @@
     </div>
   </div>
 {{-- ------- formulaire d'ajout de bouteilles ------------ --}}
-  <div class="flex flex-col lg:flex-row h-screen items-center">
+  <div class="flex flex-col lg:flex-row h-screen items-center relative">
     <div class="bg-gray-900">
       {{-- <div class="flex flex-col justify-center lg:h-screen">
         <img src="{{asset('img/form/red-wine.avif')}}"alt="" class="h-full w-full object-cover">
       </div> --}}
     </div>
-    <div class="bg-white lg:w-1/2">
+    <div class="bg-white lg:w-1/2 relative">
       <div class="mx-auto py-8">
         <h2 class="text-3xl font-bold mb-8">Ajout de Bouteilles</h2>
         <p class="text-gray-700 mb-4">Veuillez remplir le formulaire suivant pour rentrer des bouteilles qui ne sont pas sur SAQ.</p>

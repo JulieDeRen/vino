@@ -1,12 +1,12 @@
 <template>
   <div class="flex">
     <div class="grid">
-      <div class="flex relative mb-4">
-        <input type="text" class="bshadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Recherche" @keyup="showSearchOptions($event.target.value);"
+      <div class="flex items-start relative mb-4">
+        <input type="text" class="block shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Recherche" @keyup="showSearchOptions($event.target.value);"
         :value="this.textInput">
         <input name="vino_bouteille_id" type="hidden" :value="this.choixBouteille.id">
-        <button type="submit" @submit.prevent="onSubmit()" class="bg-accent_wine hover:accent_wine-80 text-main font-bold ml-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline">Recherche</button>
-        <!-- Code de la barre de recherche ICI -->
+        <!--<button type="submit" @submit.prevent="onSubmit()" class="bg-accent_wine hover:accent_wine-80 text-main font-bold ml-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline">Recherche</button>
+        Code de la barre de recherche ICI -->
       </div>
       <ul class="relative">
         <li v-for="vine in this.closestVineList" :key="vine.id" @click="takeBouteille(vine)"
@@ -17,7 +17,7 @@
     <div>
       <div class="card flex" v-if="selectedVine" style="max-width: 300px;">
         <header class="card-header">
-          <img :src="this.choixBouteille.url_img" :alt="this.choixBouteille.nom" class="max-w-none" width="150">
+          <img :src="this.choixBouteille.url_img" :alt="this.choixBouteille.nom" class="max-w-none" height="150px">
         </header>
         <div class="card-body">
           <h2>{{ this.choixBouteille.nom }}</h2>
