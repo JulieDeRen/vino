@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', function() {
 const btnMobileMenu = document.getElementById("mobile-menu-button");
 const mobileMenu = document.getElementById("mobile-menu");
 const logoWn = document.querySelector("#logo");
-
+// const mainNav = document.querySelector("#main-nav");
 
 btnMobileMenu.addEventListener("click", function () {
   
