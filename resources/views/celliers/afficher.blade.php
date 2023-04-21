@@ -45,33 +45,28 @@
         @method('PUT')
         <section class="flex flex-wrap">
               <v-recherche />
-          </section>
-          <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="quantite">
-              Quantite
-            </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="quantite" name="quantite" type="text" placeholder="Quantité de bouteilles à ajouter">
-          </div>
-          <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="date_achat">
-            </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="garde_jusqua" name="garde_jusqua" type="date" placeholder="Garde jusqu'à quand">
-          </div>
-          <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="prix">
-            Millésime
-            </label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="millesime" name="millesime" type="number" placeholder="Millésime">
-          </div>
-          <div class="flex items-center justify-between">
-            <button class="bg-accent_wine hover:accent_wine-80 text-main font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-              Ajouter
-              </button>
-              </div>
-              </form>
-              </div>
-              </div>
-              </div>
+            </div>
+            <div class="w-1/2 flex flex-col">
+              <label>
+                <input id="quantite" name="quantite" class="appearance-none inline-flex bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="Quantité de bouteilles à ajouter">
+              </label>
+              <label>
+                <input id="date_achat" name="date_achat" class="appearance-none inline-flex bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="date" placeholder="Garde jusqu'à quand">
+              </label>
+              <label>
+                <input id="garde_jusqua" name="garde_jusqua" class="appearance-none inline-flex bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="date" placeholder="Garde jusqu'à quand">
+              </label>
+              <label>
+                <input id="millesime" name="millesime" class="appearance-none inline-flex bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="Millésime">
+              </label>
+              <label>
+                <input class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-accent_wine transition duration-200 rounded shadow-md border border-accent_wine hover:bg-accent_wine hover:text-main focus:shadow-outline focus:outline-none"
+                type="submit"
+                value="Ajouter au cellier">
+              </label>
+            </div>
+        </form>
+      </div>
     <section class="flex flex-wrap">
     <!-- Containeur principal -->
     <!-- <div class="flex justify-center px-4 py-16 max-w-screen-lg mx-auto md:px-24 lg:px-8 lg:py-20"> -->

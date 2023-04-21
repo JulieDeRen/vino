@@ -4,7 +4,8 @@
       <div class="flex flex-col relative mb-4">
         <input type="text" class="block shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Recherche" @keyup="showSearchOptions($event.target.value);"
         :value="this.textInput">
-        <input name="vino_bouteille" type="hidden" :value="this.choixBouteille">
+        <input name="vino_bouteille_id" type="hidden" :value="this.choixBouteille.id">
+        <input name="vino_bouteille_prix" type="hidden" :value="this.choixBouteille.prix">
         <!--<button type="submit" @submit.prevent="onSubmit()" class="bg-accent_wine hover:accent_wine-80 text-main font-bold ml-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline">Recherche</button>
         Code de la barre de recherche ICI -->
       </div>
