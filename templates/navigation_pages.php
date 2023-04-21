@@ -36,7 +36,7 @@
               </a>
             </li>
             <li>
-              <a href="{{route('celliers.creer')}}" class="justify-center font-medium tracking-wide text-accent_wine transition-colors duration-200 hover:text-section_title" aria-label="articles" title="articles">
+              <a href="{{ route('home') }}" class="justify-center font-medium tracking-wide text-accent_wine transition-colors duration-200 hover:text-section_title" aria-label="articles" title="articles">
                 Ajouter Cellier
               </a>
             </li>
