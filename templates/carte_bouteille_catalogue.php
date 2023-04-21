@@ -7,19 +7,16 @@
     <div class="rounded-full cursor-pointer py-5 px-5 bg-secondary mr-3 hover:bg-secondary-80"></div>
 </div>
 
-
-
-
-
-<!-- Containeur principal -->
-<div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-
-<!-- Grille composante -->
-  <div class="grid gap-5 lg:grid-cols-4 sm:max-w-sm sm:mx-auto lg:max-w-full">
+  <!-- Containeur principal -->
+<!-- <div class="flex justify-center px-4 py-16 max-w-screen-lg mx-auto md:px-24 lg:px-8 lg:py-20"> -->
+<div class="px-4 py-16 mx-auto flex justify-center sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-8 lg:py-20">
+  <!-- Grille composante -->
+  
+  <div class="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 
     <!-- carte -->
-    <div class="overflow-hidden border border-accent_wine duration-300 flex flex-col gap-3 items-center max-w-[315px] bg-white rounded-lg max-h-55 p-4">
-      <a href="/" aria-label="Article"><img src="https://www.saq.com/media/catalog/product/1/5/15116225-1_1679602083.png?width=367&amp;height=550&amp;canvas=367,550&amp;quality=80&amp;fit=bounds" class="object-cover max-h-[350px] rounded" alt="vine-img" /></a>
+    <div class="overflow-hidden shadow border-section_title duration-300 flex flex-col gap-3 items-center  bg-white rounded-lg max-h-55 p-4 w-full">
+      <a href="/" aria-label="Article"><img src="https://www.saq.com/media/catalog/product/1/5/15116225-1_1679602083.png?width=367&amp;height=550&amp;canvas=367,550&amp;quality=80&amp;fit=bounds" class="object-cover max-h-[350px] max-w-[315px] rounded" alt="vine-img" /></a>
       <div class="text-center flex flex-col gap-2.5">
         <span class="font-semibold text-section_title">Cellier</span>
         <a href="/" aria-label="Article" class="inline-block text-article_title">
@@ -46,7 +43,10 @@
         </div>
       </div>
     </div>
-    <!-- fin carte -->
+    <!-- fin carte -->  
+
     
   </div>
 </div>
+
+
