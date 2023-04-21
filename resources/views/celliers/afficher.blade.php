@@ -39,8 +39,7 @@
             </label>
           </div>
         </form>
-      </div>
-    
+      </div> 
     <section class="flex flex-wrap">
         @foreach($bouteilles as $bouteille)
             <div class="block border border-green-500 max-w-md:">
