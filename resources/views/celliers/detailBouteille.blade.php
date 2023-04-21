@@ -24,22 +24,8 @@
                 <div class="border-b border-accent_wine-50 py-4 flex justify-start gap-5 items-center">
                 <span class="text-m text-section_title font-medium leading-snug">Quantité</span>
                 <!-- Compteur -->
-                <div class="flex flex-col items-center py-3">
-                    <div class="inline-flex items-center">
-                    <button class="bg-white rounded-l border text-gray-600 hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 inline-flex items-center px-2 py-1 border-r border-gray-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
-                        </svg>
-                    </button>
-                    <div class="bg-gray-100 border-t border-b border-gray-100 text-gray-600 hover:bg-gray-100 inline-flex items-center px-4 py-1 select-none"> 2
-                    </div>
-                    <button class="bg-white rounded-r border text-gray-600 hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 inline-flex items-center px-2 py-1 border-r border-gray-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                        </svg>
-                    </button>
-                    </div>
-                </div>
+                  <!-- ici va le compteur -->
+                    <v-compteur :nbbouteille="{{ $bouteille->quantite }}" :id="{{ $bouteille->vino_bouteille_id }}"/>
                 
                 <!-- end Comteur -->
 
@@ -52,7 +38,7 @@
 
                 <div class="flex items-center">
                 <span class="text-m text-section_title font-medium leading-snug">Valeur Total</span>
-                <span class="text-article_title text-m ps-5">$ 52</span>
+                <span class="text-article_title text-m ps-5">$ {{$bouteille->total}}</span>
                 </div>
             </div>
             <div class="border-b border-accent_wine-50 flex flex-col pb-4">

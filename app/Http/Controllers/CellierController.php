@@ -180,6 +180,8 @@ class CellierController
       ['vino_bouteille_id', '=', $bouteille_id]
     ])
     ->get();
+    // return $bouteilleDetail;
+    $bouteilleDetail[0]['total'] = $bouteilleDetail[0]['quantite']*$bouteilleDetail[0]['prix_saq'];
     return view('celliers.detailBouteille', ['bouteille' => $bouteilleDetail[0]]);
   }
 
