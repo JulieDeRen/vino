@@ -34,34 +34,35 @@
             <h2 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="nom">
               Ajouter une bouteille
             </h2>
-            <section class="flex flex-wrap">
-                <v-recherche />
-            </section>
           </div>
-          <div class="w-full">
-            <label>
-              <input id="quantite" name="quantite" class="appearance-none inline-flex bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="Quantité de bouteilles à ajouter">
-            </label>
-            <label>
-              <input id="date_achat" name="date_achat" class="appearance-none inline-flex bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="date" placeholder="Garde jusqu'à quand">
-            </label>
-            <label>
-              <input id="garde_jusqua" name="garde_jusqua" class="appearance-none inline-flex bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="date" placeholder="Garde jusqu'à quand">
-            </label>
-            <label>
-              <input id="prix" name="prix" class="appearance-none inline-flex bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="Prix payé">
-            </label>
-            <label>
-              <input id="millesime" name="millesime" class="appearance-none inline-flex bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="Millésime">
-            </label>
-            <label>
-              <input class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-accent_wine transition duration-200 rounded shadow-md border border-accent_wine hover:bg-accent_wine hover:text-main focus:shadow-outline focus:outline-none" 
-              type="submit" 
-              value="Ajouter au cellier">
-            </label>
-          </div>
+          <section class="flex flex-wrap border-b-2 pb-6 border-accent_wine">
+            <div class="w-1/2 flex">
+              <v-recherche />
+            </div>
+            <div class="w-1/2 flex flex-col">
+              <label>
+                <input id="quantite" name="quantite" class="appearance-none inline-flex bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="Quantité de bouteilles à ajouter">
+              </label>
+              <label>
+                <input id="date_achat" name="date_achat" class="appearance-none inline-flex bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="date" placeholder="Garde jusqu'à quand">
+              </label>
+              <label>
+                <input id="garde_jusqua" name="garde_jusqua" class="appearance-none inline-flex bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="date" placeholder="Garde jusqu'à quand">
+              </label>
+              <label>
+                <input id="prix" name="prix" class="appearance-none inline-flex bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="Prix payé">
+              </label>
+              <label>
+                <input id="millesime" name="millesime" class="appearance-none inline-flex bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="Millésime">
+              </label>
+              <label>
+                <input class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-accent_wine transition duration-200 rounded shadow-md border border-accent_wine hover:bg-accent_wine hover:text-main focus:shadow-outline focus:outline-none"
+                type="submit"
+                value="Ajouter au cellier">
+              </label>
+            </div>
         </form>
-      </div> 
+      </div>
     <section class="flex flex-wrap">
       <!-- Containeur principal -->
       <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
