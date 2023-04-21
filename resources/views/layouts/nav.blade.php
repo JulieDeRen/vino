@@ -40,11 +40,11 @@
                 Ajouter Cellier
               </a>
             </li>
-            <li>
+            <!--<li>
               <a href="{{ route('bouteilles') }}" class="justify-center font-medium tracking-wide text-accent_wine transition-colors duration-200 hover:text-section_title" aria-label="saq" title="saq">
                 Ajouter Bouteille
               </a>
-            </li>
+            </li>-->
             <li>
               <a href="{{ route('logout') }}" class="justify-center font-medium tracking-wide text-accent_wine transition-colors duration-200 hover:text-gray-500" aria-label="Sign out" title="deconnecter" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 Déconnexion
