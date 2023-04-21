@@ -95,10 +95,10 @@
         @foreach($bouteilles as $bouteille)
         <!-- carte -->
         <div class="overflow-hidden  duration-300 flex flex-col gap-3 items-center max-w-[315px] bg-white rounded-lg max-h-55 p-4">
-              <a href="/" aria-label="Article"><img src="{{ $bouteille->imageSAQ }}" class="object-cover max-h-[350px] rounded" alt="vine-img" /></a>
+              <a href="{{route('celliers.detailBouteille', $bouteille->id)}}" aria-label="Article"><img src="{{ $bouteille->imageSAQ }}" class="object-cover max-h-[350px] rounded" alt="vine-img" /></a>
               <div class="text-center flex flex-col gap-2.5">
                 <span class="font-semibold text-section_title">Cellier</span>
-                <a href="/" aria-label="Article" class="inline-block text-article_title">
+                <a href="{{route('celliers.detailBouteille', $bouteille->id)}}" aria-label="Article" class="inline-block text-article_title">
                   <p class="sm:text-2xl text-xl font-bold leading-6">{{ $bouteille->nomSAQ }}</p>
                 </a>
 
