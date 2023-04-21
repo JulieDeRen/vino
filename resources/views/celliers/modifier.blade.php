@@ -1,30 +1,31 @@
 @extends('layouts.app')
 @section('content')
-<div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+<div class="bg-white lg:w-1/2">
+  <div class="container mx-auto py-5 px-8">
+    <h2 class="text-4xl font-bold mb-8">Modifier Cellier</h2>
+    <p class="text-gray-700 mb-4">Veuillez remplir le formulaire suivant pour modifier un cellier</p>
     <form method="post" enctype="multipart/form-data">
-    <!--passer la méthode PUT et aussi le token expired réémission du token-->
     @csrf
     @method('PUT')
-  <div>
-    <div class="w-full px-3">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="nom">
-        Nom
-      </label>
-      <input id="nom" name="nom" value="{{$cellier->nom}}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="Entrez le nom du cellier" required>
-    </div>
-    <div class="w-full px-3">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="quantite_max">
-        Quantité
-      </label>
-      <input id="quantite_max" name="quantite_max" value="{{$cellier->quantite_max}}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="number" placeholder="Capacité maximale du cellier">
-    </div>
-    <div class="w-full px-3">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="description">
-        Description
-      </label>
-      <textarea name="description" id="description" cols="30" rows="10" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="{{$cellier->description ?? 'Ajouter un descriptif pour ce cellier'}}"></textarea>
-    </div>
-    <div class="w-full px-3 cellier-img">
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="nom">
+          Nom
+        </label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nom" name="nom" type="text" placeholder="Entrez le nom du cellier" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="quantite_max">
+          Quantité
+        </label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="quantite_max" name="quantite_max" type="number" placeholder="Capacité maximale du cellier">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="description">
+          Description
+        </label>
+        <textarea class="shadow appearance-none border rounded w-full py-5 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="description" name="description" type="text" placeholder="Ajouter un descriptif pour ce cellier"></textarea>
+      </div>
+    <div class="w-full cellier-img">
       <label>
         <input type="radio" name="image" value="img/celliers/cellierCaveVinMontWashington.webp">
         <img src="{{url('img/celliers/cellierCaveVinMontWashington.webp')}}">
@@ -86,12 +87,20 @@
         <img src="{{url('img/celliers/cellier_bois_chateau.jpeg')}}">
       </label>
     </div>
+    <div class="mb-4 py-4 text-center">
+      <input class="bg-accent_wine hover:accent_wine-80 text-main font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit" placeholder="Créer le cellier">
+        </input>
+        </div>
+  </form>
+</div>
+</div>
+</div>
 
-    <div class="w-full px-3">
+    {{-- <div class="w-full px-3">
       <input class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-accent_wine transition duration-200 rounded shadow-md border border-accent_wine hover:bg-accent_wine hover:text-main focus:shadow-outline focus:outline-none" 
       type="submit" 
       placeholder="Créer le cellier">
-    </div>
+    </div> --}}
   </div>
 </form>
 </div>

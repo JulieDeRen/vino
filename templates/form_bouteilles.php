@@ -25,19 +25,24 @@
               <label class="block text-gray-700 font-bold mb-2" for="quantite">
                 Quantite
               </label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="quantite" name="quantite" type="text" placeholder="">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="quantite" name="quantite" type="text" placeholder="Quantité de bouteilles à ajouter">
             </div>
             <div class="mb-4">
               <label class="block text-gray-700 font-bold mb-2" for="date_achat">
-                Date d'achat
               </label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="date_achat" name="date_achat" type="text" placeholder="jj/mm/yy">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="garde_jusqua" name="garde_jusqua" type="date" placeholder="Garde jusqu'à quand">
             </div>
             <div class="mb-4">
               <label class="block text-gray-700 font-bold mb-2" for="prix">
                 Prix
               </label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="prix" name="prix" type="text" placeholder="99.99">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="prix" name="prix" type="number" placeholder="Prix payé">
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700 font-bold mb-2" for="prix">
+              Millésime
+              </label>
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="millesime" name="millesime" type="number" placeholder="Millésime">
             </div>
             <div class="flex items-center justify-between">
               <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
