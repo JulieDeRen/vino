@@ -1,12 +1,11 @@
 <template>
   <div class="flex">
     <div class="grid">
-      <h2 class="text-black">Composante de recherche</h2>
-      <div class="flex relative">
-        <input type="text" class="border-green-500 border" @keyup="showSearchOptions($event.target.value);"
+      <div class="flex relative mb-4">
+        <input type="text" class="bshadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Recherche" @keyup="showSearchOptions($event.target.value);"
         :value="this.textInput">
         <input name="vino_bouteille_id" type="hidden" :value="this.choixBouteille.id">
-        <button type="submit" @submit.prevent="onSubmit()" class="block border border-green-500 m-1 p-1">Recherche</button>
+        <button type="submit" @submit.prevent="onSubmit()" class="bg-accent_wine hover:accent_wine-80 text-main font-bold ml-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline">Recherche</button>
         <!-- Code de la barre de recherche ICI -->
       </div>
       <ul class="relative">
@@ -16,7 +15,6 @@
       </ul>
     </div>
     <div>
-      <h3>Carte</h3>
       <div class="card flex" v-if="selectedVine" style="max-width: 300px;">
         <header class="card-header">
           <img :src="this.choixBouteille.url_img" :alt="this.choixBouteille.nom" class="max-w-none" width="150">
