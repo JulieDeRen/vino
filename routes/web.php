@@ -26,7 +26,7 @@ Auth::routes();
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('login', [LoginController::class, 'loginCustom'])->name('login.custom');
 
-Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/celliers', [App\Http\Controllers\CellierController::class, 'index'])->name('celliers.index')->middleware('auth');
 Route::get('/creer-cellier', [App\Http\Controllers\CellierController::class, 'creer'])->name('celliers.creer')->middleware('auth');
@@ -38,17 +38,9 @@ Route::get('/celliers-modifier/{cellier}', [App\Http\Controllers\CellierControll
 Route::put('/celliers-modifier/{cellier}', [App\Http\Controllers\CellierController::class, 'enregistrerModification'])->middleware('auth');
 Route::get('/details-bouteille/{bouteille_par_cellier}', [App\Http\Controllers\CellierController::class, 'afficherFicheBouteille'])->name('celliers.detailBouteille')->middleware('auth');
 
-Route::get('/bouteilles', [BouteilleController::class, 'listeBouteilles'])->name('bouteilles');
+Route::get('/bouteilles', [BouteilleController::class, 'index'])->name('bouteilles');
 
-Route::get('/saq', )->name('bouteilles')->middleware('auth');
+Route::get('/saq', )->name('bouteilles');
 
-
-Route::get('/DEsaq', [SAQController::class, 'uploadVins'])->name('bouteilles.dd')->middleware('auth');
-Route::get('/saq-show', [SAQController::class, 'show'])->name('bouteille.show')->middleware('auth');
-
-
-
-// route to use for testing
-Route::get('/test', [HomeController::class, 'testPage'])->name('test');
-
-Route::put('/celliers/{cellier}', [App\Http\Controllers\CellierController::class, 'store'])->middleware('auth');
+Route::get('/DEsaq', [SAQController::class, 'uploadVins'])->name('bouteilles.dd');
+Route::get('/saq-show', [SAQController::class, 'show'])->name('bouteille.show');

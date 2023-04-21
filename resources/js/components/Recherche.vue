@@ -14,18 +14,7 @@
         class="block border p-2"
         >{{ vine.nom }}</li>
       </ul>
-    </div>
-    <div>
-      <div class="card flex" v-if="selectedVine" style="max-width: 300px;">
-        <header class="card-header" style="max-width: 300px;">
-          <img :src="this.choixBouteille.url_img" :alt="this.choixBouteille.nom" class="max-w-none" height="150px">
-        </header>
-        <div class="card-body">
-          <h2>{{ this.choixBouteille.nom }}</h2>
-        </div>
-      </div>
-    </div>
-
+      <!-- Code de la barre de recherche ICI -->
   </div>
 </template>
 
@@ -36,40 +25,31 @@ export default {
       isMenuOpen: false,
       textInput: '',
       vineList: [],
-      closestVineList: [],
-      choixBouteille: {},
-      selectedVine: false
+      closestVineList: []
     };
   },
   methods: {
     showSearchOptions (text) {
-      this.textInput = text;
+      console.log(text);
       // Code pour filtrer la recherche
       this.closestVineList = [];
+      let i = 0;
       if(text !== "") {
-        // Only START WITH NAME ELEMENTS --- FIRST
-        this.vineList.forEach( (vine) => {
-          if(String(vine.nom.toLowerCase()).startsWith(text.toLowerCase())) {
-            this.closestVineList.push(vine)
+        this.closestVineList = this.vineList.filter(elem => {
+          if(String(elem.nom.toLowerCase()).startsWith(text.toLowerCase()) && i<=3) {
+            i++;
+            return true;
+          } else if(String(elem.nom.toLowerCase()).includes(text.toLowerCase()) && i<=3) {
+            i++;
+            return true;
+          } else {
+            return false;
           }
         })
-        // Only CONTAINS && NOT START WITH --- AFTER
-        this.vineList.forEach( (vine) => {
-          if(!String(vine.nom.toLowerCase()).startsWith(text.toLowerCase())
-          && String(vine.nom.toLowerCase()).includes(text.toLowerCase())) {
-            this.closestVineList.push(vine);
-          }
-        })
-        this.closestVineList = this.closestVineList.slice(0, 4);
       }
     },
-    takeBouteille (vine) {
-      this.textInput = vine.nom
-      this.choixBouteille = vine;
-      this.selectedVine = true;
-    },
-    onSubmit () {
-
+    callFunction (text) {
+      console.log(text)
     }
   },
   async beforeMount () {
