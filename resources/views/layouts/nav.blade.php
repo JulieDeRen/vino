@@ -65,7 +65,7 @@
   </div>
   <!-- Mobile Menu -->
   <!--  from-accent_wine to-main bg-gradient-to-t -->
-  <div id="mobile-menu" class="z-50 pt-10 transition duration-300 hidden lg:hidden from-accent_wine to-main bg-gradient-to-t absolute top-0 left-0 w-full">
+
     <div class="space-y-7 flex flex-col items-center justify-center pb-10">
       <a href="/" class="text-accent_wine uppercase tracking-wide pb-4"><img src="{{ asset('img/svg/logoWN.svg') }}" alt="logo-wineNot" class="mx-auto"></a>
       @guest
@@ -81,7 +81,7 @@
       <a href="{{ route('celliers.index') }}" class="justify-center font-regular tracking-wide text-xl text-main transition-colors duration-200 hover:text-article_title" aria-label="celliers" title="celliers">
         Mes Celliers
       </a>
-      <a href="{{ route('home') }}" class="justify-center font-regular tracking-wide text-xl text-main transition-colors duration-200 hover:text-article_title" aria-label="articles" title="articles">
+      <a href="{{route('celliers.creer')}}" class="justify-center font-regular tracking-wide text-xl text-main transition-colors duration-200 hover:text-article_title" aria-label="articles" title="articles">
         Ajouter Cellier
       </a>
       <a href="{{ route('bouteilles') }}" class="justify-center font-regular tracking-wide text-xl text-main transition-colors duration-200 hover:text-article_title" aria-label="saq" title="saq">
