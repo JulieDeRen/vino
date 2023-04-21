@@ -22,13 +22,13 @@
         {{$cellier->description ?? ''}}
         </p>
     </div>
-  </div>
+  </div>git
 {{-- ------- formulaire d'ajout de bouteilles ------------ --}}
-  <di<div class="flex flex-col lg:flex-row h-screen items-center">
+  <div class="flex flex-col lg:flex-row h-screen items-center">
     <div class="bg-gray-900 lg:w-1/2">
-      <div class="flex flex-col justify-center lg:h-screen">
-        <img src="img/form_wine.jpg" alt="" class="h-full w-full object-cover">
-      </div>
+      {{-- <div class="flex flex-col justify-center lg:h-screen">
+        <img src="{{asset('img/form/red-wine.avif')}}"alt="" class="h-full w-full object-cover">
+      </div> --}}
     </div>
     <div class="bg-white lg:w-1/2">
       <div class="container mx-auto py-16 px-8">
