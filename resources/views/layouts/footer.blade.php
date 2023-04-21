@@ -5,7 +5,7 @@
 
       <div class="sm:col-span-3">
         <a href="/" aria-label="Go home" title="Company" class="inline-flex items-center">
-          <img src="{{asset('img/svg/logoWN-white.svg')}}" alt="company-logo">
+          <img class="min-w-[150px]" src="{{asset('img/svg/logoWN-white.svg')}}" alt="company-logo">
         </a>
       </div>
 
