@@ -125,7 +125,6 @@ class CellierController
   // Formulaire d'ajout de bouteilles au cellier
   public function ajouterBouteille(Request $request, Vino_Cellier $cellier)
   {
-    
     $bouteille = Bouteille_Par_Cellier::create([
       'date_achat' => $request->date_achat,
       'garde_jusqua' => $request->garde_jusqua,
