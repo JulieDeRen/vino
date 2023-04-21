@@ -31,14 +31,14 @@
 
             </div>
             <div class="flex justify-between border-b border-accent_wine-50 pb-4">
-                <div class="flex items-center">
+                <div class="flex flex-wrap items-center">
                 <span class="text-m text-section_title font-medium leading-snug">Prix de Bouteille</span>
-                <span class="text-article_title text-m px-5">$ {{$bouteille -> prix_saq}}</span>
+                <span class="text-article_title text-m pt-2 ps-5">$ {{$bouteille -> prix_saq}}</span>
                 </div>
 
-                <div class="flex items-center">
+                <div class="flex flex-wrap items-center">
                 <span class="text-m text-section_title font-medium leading-snug">Valeur Total</span>
-                <span class="text-article_title text-m ps-5">$ {{$bouteille->total}}</span>
+                <span class="text-article_title text-m pt-2 ps-5">$ {{$bouteille->total}}</span>
                 </div>
             </div>
             <div class="border-b border-accent_wine-50 flex flex-col pb-4">
