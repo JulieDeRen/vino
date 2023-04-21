@@ -63,28 +63,28 @@
         </form>
       </div> 
     <section class="flex flex-wrap">
-      <!-- Containeur principal -->
-      <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-
+    <!-- Containeur principal -->
+    <!-- <div class="flex justify-center px-4 py-16 max-w-screen-lg mx-auto md:px-24 lg:px-8 lg:py-20"> -->
+    <div class="px-4 py-16 mx-auto flex justify-center sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-16 lg:px-8 lg:py-20">
       <!-- Grille composante -->
-        <div class="grid gap-5 lg:grid-cols-4 sm:max-w-sm sm:mx-auto lg:max-w-full">
+      
+      <div class="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+
         @foreach($bouteilles as $bouteille)
         <!-- carte -->
         <div class="overflow-hidden  duration-300 flex flex-col gap-3 items-center max-w-[315px] bg-white rounded-lg max-h-55 p-4">
-          <a href="/" aria-label="Article"><img src="{{ $bouteille->imageSAQ }}" class="object-cover max-h-[350px] rounded" alt="vine-img" /></a>
-          <div class="text-center flex flex-col gap-2.5">
-            <span class="font-semibold text-section_title">Cellier</span>
-            <a href="/" aria-label="Article" class="inline-block text-article_title">
-              <p class="sm:text-2xl text-xl font-bold leading-6">{{ $bouteille->nomSAQ }}</p>
-            </a>
-            <!-- ici va la note avec qty -->
+              <a href="/" aria-label="Article"><img src="{{ $bouteille->imageSAQ }}" class="object-cover max-h-[350px] rounded" alt="vine-img" /></a>
+              <div class="text-center flex flex-col gap-2.5">
+                <span class="font-semibold text-section_title">Cellier</span>
+                <a href="/" aria-label="Article" class="inline-block text-article_title">
+                  <p class="sm:text-2xl text-xl font-bold leading-6">{{ $bouteille->nomSAQ }}</p>
+                </a>
 
           </div>
           <!-- ici va le compteur -->
           <v-compteur :nbbouteille="{{ $bouteille->quantiteBouteille }}" :id="{{ $bouteille->vino_bouteille_id }}"/>
         </div>
-        <!-- fin carte -->
-
+        <!-- fin carte --> 
         @endforeach
 
         </div>
