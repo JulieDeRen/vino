@@ -53,7 +53,7 @@
             </li>
             <li>
               <a href="#" class="inline-flex gap-2 items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-secondary transition duration-200 rounded  hover:text-accent_wine" aria-label="Compte" title="Compte">
-                <img class="max-w-[40px]" src="{{ asset('img/svg/user-gold.svg') }}" alt="user-profile">
+                <img class="max-w-[30px]" src="{{ asset('img/svg/user-gold.svg') }}" alt="user-profile">
                 {{ Auth::user()->nom }} <!--  Affichage du nom Utilisateur. À modifier   -->
               </a>
             </li>
@@ -94,7 +94,7 @@
       <a href="#" class="pt-2 flex flex-col items-center justify-center text-xl rounded h-12 px-6 font-regular tracking-wide text-secondary transition duration-200 hover:text-main" aria-label="Compte" title="Compte"><img class="max-w-[37px]" src="{{ asset('img/svg/user-full.svg') }}" alt="user-profile">
         {{ Auth::user()->nom }}
       </a>
-     
+
       @endguest
     </div>
   </div>
