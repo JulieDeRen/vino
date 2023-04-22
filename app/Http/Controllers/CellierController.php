@@ -120,7 +120,7 @@ class CellierController
       'description' => $request->description,
       'image' => $request->image,
     ]);
-    return redirect(route('celliers.index'))->withSuccess('Article mis à jour.');
+    return redirect(route('celliers.index'))->withSuccess('Information mise à jour.');
   }
 
   // Formulaire d'ajout de bouteilles au cellier
@@ -128,8 +128,24 @@ class CellierController
   {
     // valider si bouteille pas présente dans cellier
     // si pas présente l'ajouter
-    $bouteilleValidation = Bouteille_Par_Cellier::findOrFail($request -> vino_bouteille_id);
-    if(!isset($bouteilleValidation)){
+    // retourne un tableau contenant un objet
+    $bouteilleValidation = Bouteille_Par_Cellier::select()
+    ->where('vino_bouteille_id', '=', $request -> vino_bouteille_id)
+    ->where('vino_cellier_id', '=', $cellier->id)
+    ->get();
+
+    // si bouteille présente modifier la quantité au cellier
+    // $bouteille_par_cellier est l'objet du tableau $bouteilleValidation
+    // additionner le nombre de bouteilles existantes avec le nombre souhaité
+    if(count($bouteilleValidation) !==0){
+      $bouteille_par_cellier = $bouteilleValidation[0];
+      $totalBouteille = ($bouteille_par_cellier -> quantite + $request->quantite);
+      Bouteille_Par_Cellier::find($bouteille_par_cellier->id)
+      ->update(['quantite'=>$totalBouteille]);
+    }
+
+    // Sinon si la bouteille n'est pas présente dans le cellier, l'ajouter
+    else{
       $bouteille = Bouteille_Par_Cellier::create([
         'date_achat' => $request->date_achat,
         'garde_jusqua' => $request->garde_jusqua,
@@ -139,19 +155,7 @@ class CellierController
         'vino_cellier_id'=> $cellier->id, 
         'vino_bouteille_id'=> $request->vino_bouteille_id  // vient de vue.js
       ]);
-  
       $bouteille->save();
-    }
-    // si présente modifier la quantité au cellier
-    // additionner le nombre de bouteilles existantes avec le nombre souhaité
-    else{
-      $totalBouteille = ($bouteilleValidation -> quantite + $request->quantite);
-      // return $totalBouteille;
-      $bouteille = Bouteille_Par_Cellier::select()
-      ->where([
-        ['vino_bouteille_id', '=', $request->vino_bouteille_id],
-        ['vino_cellier_id', '=', $cellier->id]
-      ])->update(['quantite' => $totalBouteille]);  
     }
     return redirect(route('celliers.afficher', $cellier->id));
   }
@@ -159,10 +163,11 @@ class CellierController
   public function modifierNbBouteille(Request $request, $cellier_id, $bouteille_id)
   {
     // vérifier dans les modèles si on peut trouver un enregistrement correspondant
+    // **utiliser findOrFail en développement**
     $cellier = Vino_Cellier::findOrFail($cellier_id);
     $bouteille = Vino_Bouteille::findOrFail($bouteille_id);
 
-    $bouteilleParCellier = Bouteille_Par_Cellier::select()
+    Bouteille_Par_Cellier::select()
     ->where([
       ['vino_bouteille_id', '=', $bouteille_id],
       ['vino_cellier_id', '=', $cellier_id]
@@ -173,14 +178,19 @@ class CellierController
   // Afficher fiche détail de bouteille
   public function afficherFicheBouteille(Bouteille_Par_Cellier $bouteille_par_cellier)
   {
-    $bouteille_id = $bouteille_par_cellier->vino_bouteille_id;
-    $bouteilleDetail = Bouteille_Par_Cellier::select()
+    // joindre les tables pour avoir info sur la bouteille
+    // $bouteille_par_cellier->id est la clé primaire
+    $bouteilleDetail = Bouteille_Par_Cellier::select(
+      '*',
+      'vino_bouteilles.id AS vino_bouteille_id',
+      'bouteille_par_celliers.id AS id'
+    )
     ->join('vino_bouteilles', 'vino_bouteilles.id', '=', 'bouteille_par_celliers.vino_bouteille_id')
     ->where([
-      ['vino_bouteille_id', '=', $bouteille_id]
+      ['bouteille_par_celliers.id', '=', $bouteille_par_cellier->id]
     ])
     ->get();
-    // return $bouteilleDetail;
+    // Passer à travers le tableau et calculer le total payé par l'utilisateur;
     $bouteilleDetail[0]['total'] = $bouteilleDetail[0]['quantite']*$bouteilleDetail[0]['prix_saq'];
     return view('celliers.detailBouteille', ['bouteille' => $bouteilleDetail[0]]);
   }

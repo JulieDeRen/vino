@@ -16,7 +16,7 @@
             <div class="p-5">
             <div class="flex items-center justify-between mb-3">
                 <span class="text-m font-medium text-section_title leading-snug">Cellier:</span>
-                <span class="text-m font-medium text-section_title leading-snug">Date d'ajout: </span>
+                <span class="text-m font-medium text-section_title leading-snug">Date d'ajout: {{$bouteille->date_achat ?? ''}}</span>
             </div>
             <h5 class="sm:text-2xl text-article_title text-xl font-bold leading-6 mb-4">{{$bouteille -> nom}}</h5>
 
@@ -25,7 +25,7 @@
                 <span class="text-m text-section_title font-medium leading-snug">Quantité</span>
                 <!-- Compteur -->
                   <!-- ici va le compteur -->
-                    <v-compteur :nbbouteille="{{ $bouteille->quantite }}" :id="{{ $bouteille->vino_bouteille_id }}"/>
+                  <v-compteur :nbbouteille="{{ $bouteille->quantite }}" :id="{{ $bouteille->vino_bouteille_id }}"/>
                 
                 <!-- end Comteur -->
 
