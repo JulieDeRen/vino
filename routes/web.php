@@ -36,6 +36,7 @@ Route::put('/celliers/{cellier}', [App\Http\Controllers\CellierController::class
 Route::put('/celliers/{cellier}/{idbouteille}', [App\Http\Controllers\CellierController::class, 'modifierNbBouteille'])->middleware('auth');
 Route::get('/celliers-modifier/{cellier}', [App\Http\Controllers\CellierController::class, 'modifier'])->name('celliers.modifier')->middleware('auth');
 Route::put('/celliers-modifier/{cellier}', [App\Http\Controllers\CellierController::class, 'enregistrerModification'])->middleware('auth');
+Route::get('/details-bouteille/{bouteille_par_cellier}', [App\Http\Controllers\CellierController::class, 'afficherFicheBouteille'])->name('celliers.detailBouteille')->middleware('auth');
 
 Route::get('/bouteilles', [BouteilleController::class, 'listeBouteilles'])->name('bouteilles');
 

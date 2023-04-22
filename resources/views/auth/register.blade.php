@@ -10,12 +10,12 @@
         <form method="POST" action="{{ route('register') }}">
           @csrf
           <div class="flex gap-2 mb-4">
-            <input id="firstName" type="text" placeholder="{{ __('Prenom') }}" class="appearance-none border rounded w-full py-3 px-3 text-accent_wine leading-tight focus:outline-none border-accent_wine @error('name') border-red-500 @enderror" name="nom" value="{{ old('name') }}" required autocomplete="name" autofocus>
-            @error('name')
+            <input id="firstName" type="text" placeholder="{{ __('Prenom') }}" class="appearance-none border rounded w-full py-3 px-3 text-accent_wine leading-tight focus:outline-none border-accent_wine @error('firstName') border-red-500 @enderror" name="firstName" value="{{ old('firstName') }}" required autocomplete="firstName" autofocus>
+            @error('firstName')
             <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p>
             @enderror
-            <input id="lastName" type="text" placeholder="{{ __('Nom') }}" class="appearance-none border rounded w-full py-3 px-3 text-accent_wine leading-tight focus:outline-none border-accent_wine @error('name') border-red-500 @enderror" name="prenom" value="{{ old('name') }}" required autocomplete="name" autofocus>
-            @error('name')
+            <input id="lastName" type="text" placeholder="{{ __('Nom') }}" class="appearance-none border rounded w-full py-3 px-3 text-accent_wine leading-tight focus:outline-none border-accent_wine @error('lastName') border-red-500 @enderror" name="lastName" value="{{ old('lastName') }}" required autocomplete="lastName" autofocus>
+            @error('lastName')
             <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p>
             @enderror
           </div>

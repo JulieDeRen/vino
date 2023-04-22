@@ -40,11 +40,11 @@
                 Ajouter Cellier
               </a>
             </li>
-            <li>
+            <!--<li>
               <a href="{{ route('bouteilles') }}" class="justify-center font-medium tracking-wide text-accent_wine transition-colors duration-200 hover:text-section_title" aria-label="saq" title="saq">
                 Ajouter Bouteille
               </a>
-            </li>
+            </li>-->
             <li>
               <a href="{{ route('logout') }}" class="justify-center font-medium tracking-wide text-accent_wine transition-colors duration-200 hover:text-gray-500" aria-label="Sign out" title="deconnecter" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 Déconnexion
@@ -53,7 +53,7 @@
             </li>
             <li>
               <a href="#" class="inline-flex gap-2 items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-secondary transition duration-200 rounded  hover:text-accent_wine" aria-label="Compte" title="Compte">
-                <img class="max-w-[40px]" src="{{ asset('img/svg/user-gold.svg') }}" alt="user-profile">
+                <img class="max-w-[30px]" src="{{ asset('img/svg/user-gold.svg') }}" alt="user-profile">
                 {{ Auth::user()->nom }} <!--  Affichage du nom Utilisateur. À modifier   -->
               </a>
             </li>
@@ -65,7 +65,7 @@
   </div>
   <!-- Mobile Menu -->
   <!--  from-accent_wine to-main bg-gradient-to-t -->
-  <div id="mobile-menu" class="transition duration-300 hidden lg:hidden from-accent_wine to-main bg-gradient-to-t relative top-0 left-0 w-full">
+  <div id="mobile-menu" class="z-50 pt-10 transition duration-300 hidden lg:hidden from-accent_wine to-main bg-gradient-to-t absolute top-0 left-0 w-full">
     <div class="space-y-7 flex flex-col items-center justify-center pb-10">
       <a href="/" class="text-accent_wine uppercase tracking-wide pb-4"><img src="{{ asset('img/svg/logoWN.svg') }}" alt="logo-wineNot" class="mx-auto"></a>
       @guest
@@ -81,7 +81,7 @@
       <a href="{{ route('celliers.index') }}" class="justify-center font-regular tracking-wide text-xl text-main transition-colors duration-200 hover:text-article_title" aria-label="celliers" title="celliers">
         Mes Celliers
       </a>
-      <a href="{{ route('home') }}" class="justify-center font-regular tracking-wide text-xl text-main transition-colors duration-200 hover:text-article_title" aria-label="articles" title="articles">
+      <a href="{{route('celliers.creer')}}" class="justify-center font-regular tracking-wide text-xl text-main transition-colors duration-200 hover:text-article_title" aria-label="articles" title="articles">
         Ajouter Cellier
       </a>
       <a href="{{ route('bouteilles') }}" class="justify-center font-regular tracking-wide text-xl text-main transition-colors duration-200 hover:text-article_title" aria-label="saq" title="saq">
@@ -94,7 +94,7 @@
       <a href="#" class="pt-2 flex flex-col items-center justify-center text-xl rounded h-12 px-6 font-regular tracking-wide text-secondary transition duration-200 hover:text-main" aria-label="Compte" title="Compte"><img class="max-w-[37px]" src="{{ asset('img/svg/user-full.svg') }}" alt="user-profile">
         {{ Auth::user()->nom }}
       </a>
-     
+
       @endguest
     </div>
   </div>
