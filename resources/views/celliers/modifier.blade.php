@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
-<div class="bg-white">
+<div class="bg-white py-16">
   <div class="container mx-auto py-5 px-8 max-w-lg">
-    <h2 class="text-4xl font-bold mb-8">Modifier Cellier</h2>
+    <h2 class="text-4xl font-bold mb-8">Modifier Mon Cellier</h2>
     <p class="text-gray-700 mb-4">Veuillez remplir le formulaire suivant pour modifier un cellier</p>
     <form method="post" enctype="multipart/form-data">
       <!-- ajouter un token pour autoriser la route une seconde fois -->
