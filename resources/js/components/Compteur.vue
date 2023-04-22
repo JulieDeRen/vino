@@ -52,6 +52,9 @@
 
 <script>
 import axios from "axios";
+// 2 param nombre de bouteille et l'id du cellier
+// éditerManuellement est faux par défaut donc on incrémente avec + et - 
+// si on clique sur l'input, alors éditerManuellement devient vrai
 export default {
   props: ["nbbouteille", "id"],
   data() {
@@ -61,6 +64,7 @@ export default {
     };
   },
   methods: {
+    // à chaque incrémentation modifier le nombre de bouteille dans la database
     incrementerCompteur() {
       this.compteur++;
       this.modifierNbBouteille();
@@ -71,6 +75,7 @@ export default {
         this.modifierNbBouteille();
       }
     },
+    // modifier avec la méthode axios .put l'url de la page avec nombre de bouteilles
     modifierNbBouteille() {
       let url = window.location.pathname + "/" + this.id;
       axios
@@ -82,6 +87,7 @@ export default {
           console.log(error);
         });
     },
+    // éditer manuellement lorsqu'on clique sur le compteur
     editer(number) {
       this.compteur = number;
       this.modifierNbBouteille();
