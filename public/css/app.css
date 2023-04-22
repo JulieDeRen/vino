@@ -611,6 +611,9 @@ video {
 .mt-auto {
   margin-top: auto;
 }
+.mb-20 {
+  margin-bottom: 5rem;
+}
 .block {
   display: block;
 }
@@ -715,6 +718,9 @@ video {
 }
 .max-w-screen-lg {
   max-width: 1024px;
+}
+.max-w-md {
+  max-width: 28rem;
 }
 .flex-shrink-0 {
   flex-shrink: 0;

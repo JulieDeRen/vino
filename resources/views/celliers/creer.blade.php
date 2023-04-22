@@ -6,9 +6,7 @@
     <p class="text-gray-700 mb-4">Veuillez remplir le formulaire suivant pour ajouter un cellier</p>
     <form action="{{route('celliers.insererCellier')}}" method="post" enctype="multipart/form-data" class="w-full">
       <!-- ajouter un token pour autoriser la route une seconde fois -->
-      <!-- méthode put pour modification -->
       @csrf
-      @method('PUT')
       <div class="mb-4">
         <label class="block text-gray-700 font-bold mb-2" for="nom">
           Nom
@@ -34,7 +32,7 @@
           <img src="{{url('img/celliers/cellierCaveVinMontWashington.webp')}}">
         </label>
         <label>
-          <input type="radio" name="image" value="img/celliers/large_Charlevoix-Wine-Cellar-with-Dog.jpg" checked>
+          <input checked type="radio" name="image" value="img/celliers/large_Charlevoix-Wine-Cellar-with-Dog.jpg" checked>
           <img src="{{url('img/celliers/large_Charlevoix-Wine-Cellar-with-Dog.jpg')}}">
         </label>
         <label>
