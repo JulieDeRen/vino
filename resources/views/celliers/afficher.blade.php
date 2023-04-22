@@ -2,16 +2,22 @@
 @section('content')
 
 <div class="container mx-auto py-8 px-8 sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-    <!-- Redirection vers modifier les infos du cellier -->
-  <div>
-    <div class="text-center w-full block">
-    <a  href="{{route('celliers.modifier', ['cellier' => $cellier->id])}}" class="inline-flex items-center justify-center space-x-2 py-3 px-4 bg-accent_wine hover:accent_wine-80 text-main font-bold ml-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-      <div><span class="ml-2 py-8"></span>Modifier cellier</div>
-    </a>
-  </div>
+       <!-- Redirection vers modifier les infos du cellier -->
+       <div>
+       <div class="text-center w-full">
+        <a  href="{{route('celliers.modifier', ['cellier' => $cellier->id])}}" class="inline-flex items-center justify-center space-x-2 py-3 px-4 bg-accent_wine hover:accent_wine-80 text-main font-bold ml-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <div><span class="ml-2 py-8"></span>Modifier cellier</div>
+        </a>
+        {{-- <a
+          href="{{route('celliers.modifier', ['cellier' => $cellier->id])}}"
+          class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-accent_wine transition duration-200 rounded shadow-md hover:bg-accent_wine hover:text-main focus:shadow-outline focus:outline-none"
+        >
+          Modifier les informations du cellier
+        </a> --}}
+      </div>
   <div class="py-4 mt-6">
     <div onclick="location.href=`{{route('celliers.afficher', $cellier->id)}}`">
       <!--<img class="object-cover w-full h-56 mb-6 rounded shadow-lg md:h-64 xl:h-80" src="/{{$cellier->image}}" alt="{{$cellier->nom}}" />-->
@@ -23,17 +29,19 @@
         </p>
     </div>
   </div>
-</div>
-<!-- ------- formulaire d'ajout de bouteilles ------------ -->
-  <div class="flex-col lg:flex-row h-screen items-center relative">
-    <div class="bg-white lg:w-1/2 relative">
-      <div class="mx-auto py-8">
-        <h2 class="text-3xl font-bold mb-8">Ajout de Bouteilles</h2>
-        <p class="text-gray-700 mb-4">Veuillez remplir le formulaire suivant pour rentrer des bouteilles qui ne sont pas sur SAQ.</p>
-        <form method="post" enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
-        <section class="flex flex-wrap">
+  <div>
+      <!-- Form d'ajout de bouteilles dans ce cellier-->
+      <form method="post" enctype="multipart/form-data">
+          <!--passer la méthode PUT et aussi le token expired réémission du token-->
+          @csrf
+          @method('PUT')
+          <div class="w-full">
+            <h2 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="nom">
+              Ajouter une bouteille
+            </h2>
+          </div>
+          <section class="flex flex-wrap border-b-2 pb-6 border-accent_wine">
+            <div class="w-1/2 flex">
               <v-recherche />
             </div>
             <div class="w-1/2 flex flex-col">
@@ -55,10 +63,8 @@
                 value="Ajouter au cellier">
               </label>
             </div>
-          </section>
         </form>
       </div>
-  </div>
     <section class="flex flex-wrap">
     <!-- Containeur principal -->
     <!-- <div class="flex justify-center px-4 py-16 max-w-screen-lg mx-auto md:px-24 lg:px-8 lg:py-20"> -->
@@ -88,5 +94,9 @@
       </div>
 
     </section>
+
+    </div>
+  </div>
+</div>
 
 @endsection
