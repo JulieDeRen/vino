@@ -70,6 +70,7 @@ class CellierController
   public function afficher($cellier)
   {
     // chercher dans la classe Vino_Cellier la ligne correspondante au id ($cellier)
+    // nommer les colonnes et donner des alias pour unicité
     $celliers = Vino_Cellier::find($cellier); 
     $bouteilles = Bouteille::select(
       'date_achat',
@@ -182,10 +183,33 @@ class CellierController
     // $bouteille_par_cellier->id est la clé primaire
     $bouteilleDetail = Bouteille_Par_Cellier::select(
       '*',
+      'bouteille_par_celliers.id AS id',
+      'vino_cellier_id',
       'vino_bouteilles.id AS vino_bouteille_id',
-      'bouteille_par_celliers.id AS id'
+      'date_achat',
+      'garde_jusqua',
+      'prix AS prixPaye',
+      'quantite AS quantiteBouteille',
+      'millesime',
+      'vino_bouteilles.nom AS nom',
+      'vino_bouteilles.image AS image',
+      'code_saq',
+      'vino_bouteilles.description AS description',
+      'prix_saq',
+      'url_saq',
+      'url_img',
+      'vino_format_id',
+      'vino_type_id',
+      'pays_id',
+      'pays',
+      'format',
+      'type'
     )
     ->join('vino_bouteilles', 'vino_bouteilles.id', '=', 'bouteille_par_celliers.vino_bouteille_id')
+    ->join('vino_celliers', 'bouteille_par_celliers.vino_cellier_id', '=', 'vino_celliers.id')
+    ->join('vino_formats', 'vino_formats.id', '=', 'vino_bouteilles.vino_format_id')
+    ->join('vino_types', 'vino_types.id', '=', 'vino_bouteilles.vino_type_id')
+    ->join('pays', 'pays.id', '=', 'vino_bouteilles.pays_id')
     ->where([
       ['bouteille_par_celliers.id', '=', $bouteille_par_cellier->id]
     ])

@@ -25,7 +25,7 @@
                 <span class="text-m text-section_title font-medium leading-snug">Quantité</span>
                 <!-- Compteur -->
                   <!-- ici va le compteur -->
-                  <v-compteur :nbbouteille="{{ $bouteille->quantite }}" :id="{{ $bouteille->vino_bouteille_id }}"/>
+                  <v-compteur :nbbouteille="{{ $bouteille->quantiteBouteille }}" :id="{{ $bouteille->vino_bouteille_id }}"/>
                 
                 <!-- end Comteur -->
 
