@@ -11,19 +11,19 @@
         <label class="block text-gray-700 font-bold mb-2" for="nom">
           Nom
         </label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nom" name="nom" type="text" placeholder="Entrez le nom du cellier" required>
+        <input value="{{$cellier->nom}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nom" name="nom" type="text" placeholder="Entrez le nom du cellier" required>
       </div>
       <div class="mb-4">
         <label class="block text-gray-700 font-bold mb-2" for="quantite_max">
           Quantité
         </label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="quantite_max" name="quantite_max" type="number" placeholder="Capacité maximale du cellier">
+        <input value="{{$cellier->quantite_max}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="quantite_max" name="quantite_max" type="number" placeholder="Capacité maximale du cellier">
       </div>
       <div class="mb-4">
         <label class="block text-gray-700 font-bold mb-2" for="description">
           Description
         </label>
-        <textarea class="shadow appearance-none border rounded w-full py-5 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="description" name="description" type="text" placeholder="Ajouter un descriptif pour ce cellier"></textarea>
+        <textarea class="shadow appearance-none border rounded w-full py-5 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="description" name="description" type="text" placeholder="Ajouter un descriptif pour ce cellier">{{$cellier->description}}</textarea>
       </div>
     <div class="w-full cellier-img">
       <label>
