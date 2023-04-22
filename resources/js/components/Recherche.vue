@@ -2,7 +2,7 @@
   <div class="flex flex-col me-4">
     <div class="grid">
       <div class="flex flex-col relative mb-4">
-        <input type="text" class="block shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Recherche" @keyup="showSearchOptions($event.target.value);"
+        <input type="text" class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-accent_wine transition duration-200 rounded shadow-md border border-accent_wine focus:shadow-outline focus:outline-none" placeholder="Recherche" @keyup="showSearchOptions($event.target.value);"
         :value="this.textInput">
         <input name="vino_bouteille_id" type="hidden" :value="this.choixBouteille.id">
         <input name="vino_bouteille_prix" type="hidden" :value="this.choixBouteille.prix">
