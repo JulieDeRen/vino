@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
-<div class="bg-white lg:w-1/2">
-  <div class="container mx-auto py-5 px-8">
+<div class="bg-white">
+  <div class="container mx-auto py-5 px-8 max-w-lg">
     <h2 class="text-4xl font-bold mb-8">Modifier Cellier</h2>
     <p class="text-gray-700 mb-4">Veuillez remplir le formulaire suivant pour modifier un cellier</p>
     <form method="post" enctype="multipart/form-data">
@@ -14,21 +14,21 @@
           Nom
         </label>
         <!-- ** important de concerver les input ** -->
-        <input value="{{$cellier->nom}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nom" name="nom" type="text" placeholder="Entrez le nom du cellier" required>
+        <input value="{{$cellier->nom}}" class="w-full items-center justify-center h-12 px-6 font-medium tracking-wide text-accent_wine transition duration-200 rounded border border-accent_wine focus:shadow-outline" id="nom" name="nom" type="text" placeholder="Entrez le nom du cellier" required>
       </div>
       <div class="mb-4">
         <label class="block text-gray-700 font-bold mb-2" for="quantite_max">
           Quantité
         </label>
-        <input value="{{$cellier->quantite_max}}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="quantite_max" name="quantite_max" type="number" placeholder="Capacité maximale du cellier">
+        <input value="{{$cellier->quantite_max}}" class="w-full items-center justify-center h-12 px-6 font-medium tracking-wide text-accent_wine transition duration-200 rounded border border-accent_wine focus:shadow-outline" id="quantite_max" name="quantite_max" type="number" placeholder="Capacité maximale du cellier">
       </div>
       <div class="mb-4">
         <label class="block text-gray-700 font-bold mb-2" for="description">
           Description
         </label>
-        <textarea class="shadow appearance-none border rounded w-full py-5 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="description" name="description" type="text" placeholder="Ajouter un descriptif pour ce cellier">{{$cellier->description}}</textarea>
+        <textarea class="w-full h-full items-center justify-center h-12 px-6 font-medium tracking-wide text-accent_wine transition duration-200 rounded border border-accent_wine focus:shadow-outline" id="description" name="description" type="text" placeholder="Ajouter un descriptif pour ce cellier">{{$cellier->description}}</textarea>
       </div>
-      <div class="w-full cellier-img">
+      <div class="cellier-img">
         <label>
           <input type="radio" name="image" value="img/celliers/cellierCaveVinMontWashington.webp">
           <img src="{{url('img/celliers/cellierCaveVinMontWashington.webp')}}">
@@ -91,7 +91,7 @@
         </label>
       </div>
       <div class="mb-4 py-4 text-center">
-        <input class="bg-accent_wine hover:accent_wine-80 text-main font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit" placeholder="Créer le cellier">
+        <input value = "Modifier" class="bg-accent_wine hover:accent_wine-80 text-main font-bold py-2 px-8 rounded focus:outline-none focus:shadow-outline" type="submit" placeholder="Créer le cellier">
         </input>
       </div>
     </form>
