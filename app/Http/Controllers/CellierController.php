@@ -53,7 +53,6 @@ class CellierController
   // Enregistrement dans la bd
   public function insererCellier(Request $request)
   {
-    return $request;
     // ** doit ajouter Auth qui vient du login
     $request['utilisateurs_id'] = Auth::id();
     $cellier = Vino_Cellier::create([
@@ -66,13 +65,12 @@ class CellierController
     $cellier->save();
     return redirect(route('celliers.index'));
   }
-
   // afficher un cellier et les bouteilles de ce cellier
   // passer en param de fonction afficher $cellier = celliers.id
-  public function afficher($idCellier)
+  public function afficher($cellier)
   {
     // chercher dans la classe Vino_Cellier la ligne correspondante au id ($cellier)
-    $cellier = Vino_Cellier::find($idCellier); 
+    $celliers = Vino_Cellier::find($cellier); 
     $bouteilles = Bouteille::select(
       'date_achat',
       'garde_jusqua',
@@ -104,7 +102,7 @@ class CellierController
       ->where('vino_celliers.id', $cellier)
       ->get();
 
-    return view('celliers.afficher', ['cellier' => $cellier,
+    return view('celliers.afficher', ['cellier' => $celliers,
                                       'bouteilles' => $bouteilles]);
   }
 
@@ -125,38 +123,21 @@ class CellierController
     return redirect(route('celliers.index'))->withSuccess('Article mis à jour.');
   }
 
-  // Mykhael Function 
-  public function store(Request $request, Vino_Cellier $cellier) {
-    Bouteille_Par_Cellier::create([
-      'date_achat' => $request->date_achat,
-      'garde_jusqua' => $request->garde_jusqua,
-      'prix' => $request->vino_bouteille_prix,
-      'quantite' => $request->quantite,
-      'millesime' => $request->millesime,
-      'vino_cellier_id'=> $cellier->id, 
-      'vino_bouteille_id'=> $request->vino_bouteille_id  // vient de vue.js
-    ]);
-
-    return redirect(route('celliers.afficher', $cellier->id));
-  }
-
-
   // Formulaire d'ajout de bouteilles au cellier
-  /*public function ajouterBouteille(Request $request, Vino_Cellier $cellier)
+  public function ajouterBouteille(Request $request, Vino_Cellier $cellier)
   {
-    return($request->vino_bouteille['id']);
     // valider si bouteille pas présente dans cellier
     // si pas présente l'ajouter
-    $bouteilleValidation = Bouteille_Par_Cellier::findOrFail($request->vino_bouteille->id);
+    $bouteilleValidation = Bouteille_Par_Cellier::findOrFail($request -> vino_bouteille_id);
     if(!isset($bouteilleValidation)){
       $bouteille = Bouteille_Par_Cellier::create([
         'date_achat' => $request->date_achat,
         'garde_jusqua' => $request->garde_jusqua,
-        'prix' => $request->vino_bouteille->prix,
+        'prix' => $request->prix,
         'quantite' => $request->quantite,
         'millesime' => $request->millesime,
         'vino_cellier_id'=> $cellier->id, 
-        'vino_bouteille_id'=> $request->vino_bouteille->id  // vient de vue.js
+        'vino_bouteille_id'=> $request->vino_bouteille_id  // vient de vue.js
       ]);
   
       $bouteille->save();
@@ -173,7 +154,7 @@ class CellierController
       ])->update(['quantite' => $totalBouteille]);  
     }
     return redirect(route('celliers.afficher', $cellier->id));
-  }*/
+  }
 
   public function modifierNbBouteille(Request $request, $cellier_id, $bouteille_id)
   {

@@ -3,7 +3,7 @@
 
 <div class="container mx-auto py-8 px-8 sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
     <!-- Redirection vers modifier les infos du cellier -->
-    <div>
+  <div>
     <div class="text-center w-full block">
     <a  href="{{route('celliers.modifier', ['cellier' => $cellier->id])}}" class="inline-flex items-center justify-center space-x-2 py-3 px-4 bg-accent_wine hover:accent_wine-80 text-main font-bold ml-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -11,12 +11,6 @@
       </svg>
       <div><span class="ml-2 py-8"></span>Modifier cellier</div>
     </a>
-    {{-- <a
-      href="{{route('celliers.modifier', ['cellier' => $cellier->id])}}"
-      class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-accent_wine transition duration-200 rounded shadow-md hover:bg-accent_wine hover:text-main focus:shadow-outline focus:outline-none"
-    >
-      Modifier les informations du cellier
-    </a> --}}
   </div>
   <div class="py-4 mt-6">
     <div onclick="location.href=`{{route('celliers.afficher', $cellier->id)}}`">
@@ -29,13 +23,9 @@
         </p>
     </div>
   </div>
-{{-- ------- formulaire d'ajout de bouteilles ------------ --}}
-  <div class="flex flex-col lg:flex-row h-screen items-center relative">
-    <div class="bg-gray-900">
-      {{-- <div class="flex flex-col justify-center lg:h-screen">
-        <img src="{{asset('img/form/red-wine.avif')}}"alt="" class="h-full w-full object-cover">
-      </div> --}}
-    </div>
+</div>
+<!-- ------- formulaire d'ajout de bouteilles ------------ -->
+  <div class="flex-col lg:flex-row h-screen items-center relative">
     <div class="bg-white lg:w-1/2 relative">
       <div class="mx-auto py-8">
         <h2 class="text-3xl font-bold mb-8">Ajout de Bouteilles</h2>
@@ -65,8 +55,10 @@
                 value="Ajouter au cellier">
               </label>
             </div>
+          </section>
         </form>
       </div>
+  </div>
     <section class="flex flex-wrap">
     <!-- Containeur principal -->
     <!-- <div class="flex justify-center px-4 py-16 max-w-screen-lg mx-auto md:px-24 lg:px-8 lg:py-20"> -->
@@ -96,9 +88,5 @@
       </div>
 
     </section>
-
-    </div>
-  </div>
-</div>
 
 @endsection
